@@ -30,7 +30,8 @@ const RouteConfiguration = () => {
       )
     })
     
-
+    // console.log("hjkkkk");
+    
 
   return (
     <BrowserRouter>
