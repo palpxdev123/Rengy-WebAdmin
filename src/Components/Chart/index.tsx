@@ -49,7 +49,7 @@ const BookingChart: React.FC<BookingChartProps> = ({
 
   const options: ChartOptions<"doughnut"> = {
     responsive: true,
-    maintainAspectRatio: false, // ✅ important for fixed sizing
+    maintainAspectRatio: false,
     plugins: {
       legend: {
         display: false,

@@ -74,7 +74,8 @@ const SelectComponent: React.FC<SelectComponentProps> = ({
         searchValue={searchValue}
         // searchValue={searchValue}
 
-        style={{height: 36}}
+        style={{ height: 36, fontFamily: "General Sans, sans-serif" }}
+        
       />
       {error && touched && <div style={{ color: "red" }}>{error}</div>}
     </div>

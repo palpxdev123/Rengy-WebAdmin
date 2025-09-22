@@ -4,6 +4,7 @@ import Profile from "../../assets/images/profile.png";
 import { FaAngleDown } from "react-icons/fa6";
 import { AuthContext } from "../../../Utils/AuthProvider";
 import SelectComponent from "../../Components/Select";
+import"../../Components/Typo/style.scss";
 
 interface props {
   title: String
@@ -22,7 +23,7 @@ const Header = ({
         <Input placeholder="Search" search />
         <div className="flex justify-center items-center gap-8">
          <img src={Profile} alt="" height={32} width={32}/>
-         <p>Rajesh B</p>
+         <p className="text-one">Rajesh B</p>
          <FaAngleDown/>
         </div>
         <div>
