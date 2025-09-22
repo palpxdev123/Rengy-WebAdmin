@@ -3,11 +3,21 @@ import Input from "../../Components/Input";
 import Profile from "../../assets/images/profile.png";
 import { FaAngleDown } from "react-icons/fa6";
 import { AuthContext } from "../../../Utils/AuthProvider";
-const Header = () => {
-  const { setAuthenticate} = useContext(AuthContext)
+import SelectComponent from "../../Components/Select";
+
+interface props {
+  title: String
+}
+
+const Header = ({
+  title
+
+}: props) => {
+  const {setAuthenticate} = useContext(AuthContext)
   return (
+    <>
     <header className="h-[56px] bg-main-secondary py-[12px] px-[24px] header-border-bottom flex justify-between items-center">
-      <p>Overview</p>
+      <p>{title}</p>
       <div className="flex gap-24 justify-center items-center">
         <Input placeholder="Search" search />
         <div className="flex justify-center items-center gap-8">
@@ -19,7 +29,15 @@ const Header = () => {
           <button className="cursor-pointer" onClick={()=>{setAuthenticate(false), localStorage.clear()}}>Logout</button>
         </div>
       </div>
+      
     </header>
+    <header className="">
+      <div className="px-[24px] py-[12px] bg-main-secondary flex justify-between items-center">
+        <SelectComponent value={"All"} options={[{label: "All", value: "all"}]} className="h-[36px]" />
+        <SelectComponent calender={true}  value={"Today"} options={[{label: "Today", value: "today"}]} className="h-[36px]" />
+      </div>
+    </header>
+    </>
   );
 };
 export default Header;
