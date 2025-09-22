@@ -1,0 +1,15 @@
+@use "../../Styles/variables" as *;
+
+
+
+.borderwe{
+ border-right-color: $input-border;
+}
+
+.border-header{
+    border-bottom-color: $input-border;
+}
+
+.view_all{
+    color: $view-green
+}

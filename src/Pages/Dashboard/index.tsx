@@ -1,66 +1,85 @@
-import Linegraph from "../../Components/Line";
+import { Notification } from "../../Components";
+import BookingChart from "../../Components/Chart";
 import PageLayout from "../../Components/PageLayout";
 import "../../Styles/index.scss";
 import FlatCard from "./Components/Cards";
-import type { ChartData, ChartDataset, ChartOptions } from "chart.js";
-import './style.scss';
-
+import ConatctDashboardCard from "./Components/ContactCard";
+import "./style.scss";
 const Dashboard = () => {
-  // Base dataset
-  const baseDataset: ChartDataset<"line", number[]> = {
-    label: "Loan requests",
-    data: [4, 8, 10, 10, 9, 6, 6, 9, 13, 18, 24, 30],
-    borderColor: "#27D392",
-    borderWidth: 2,
-    fill: true,
-    backgroundColor: "#27D392",
-    tension: 0.4,
-  };
-
-  // Chart data
-  const chartData: ChartData<"line", number[], string> = {
-    labels: [
-      "Jan",
-      "Feb",
-      "Mar",
-      "Apr",
-      "May",
-      "Jun",
-      "Jul",
-      "Aug",
-      "Sep",
-      "Oct",
-      "Nov",
-      "Dec",
-    ],
-    datasets: [baseDataset],
-  };
-
-  // Chart options
-  const chartOptions: ChartOptions<"line"> = {
-    responsive: true,
-    plugins: {
-      legend: { display: false },
-    },
-    scales: {
-      x: { grid: { display: false } },
-      y: {
-        beginAtZero: true,
-        grid: { color: "#E2E8F0" },
+  const dashboardData = {
+    data: [
+      {},
+      {},
+      {
+        list: [
+          {
+            today: [
+              { name: "Projects in Installations 60%", value: 60 },
+              { name: "Projects in Material Dispatch 30%", value: 20 },
+              { name: "Projects in DPR Stage 10%", value: 10 },
+            ],
+            week: [
+              { name: "Projects in Installations 60%", value: 55 },
+              { name: "Projects in Material Dispatch 30%", value: 25 },
+              { name: "Projects in DPR Stage 10%", value: 15 },
+            ],
+          },
+        ],
       },
-    },
+    ],
   };
 
-  return (
-    <PageLayout title={"Dashboard"}>
-      <FlatCard value={2847} percentage={12.5} label="Total Active Users" />
+  const optionsSelect = [
+    { label: "Today", value: "today" },
+    { label: "This Week", value: "week" },
+  ];
 
-      {/* ✅ Correct usage */}
-      <Linegraph
-        data={chartData}
-        options={chartOptions}
-        title="Loan Request Applications"
-      />
+  const DashboardCardvalue = [
+    {
+      value: "2.4M",
+      percentage: 12.5,
+      label: "Revenue",
+    },
+    {
+      value: 2847,
+      percentage: 12.5,
+      label: "Total Active Users",
+    },
+    {
+      value: 156,
+      percentage: 12.5,
+      label: "Total Loan Requests",
+    },
+    {
+      value: 89,
+      percentage: 12.5,
+      label: "Active Projects",
+    },
+    {
+      value: 23,
+      percentage: -8.2,
+      label: "Pending Approvals",
+    },
+  ];
+  return (
+    <PageLayout title={"tatat"} header2={true}>
+      <div className="flex justify-between">
+        {DashboardCardvalue?.map((item) => (
+          <FlatCard
+            value={item?.value}
+            percentage={item?.percentage}
+            label={item?.label}
+          />
+        ))}
+      </div>
+      <div className="py-[24px] flex justify-between">
+        <BookingChart
+          dashboardData={dashboardData}
+          optionsSelect={optionsSelect}
+        />
+        <ConatctDashboardCard />
+        <Notification />
+      </div>
     </PageLayout>
   );
 };

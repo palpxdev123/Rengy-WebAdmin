@@ -7,11 +7,13 @@ import SelectComponent from "../../Components/Select";
 import"../../Components/Typo/style.scss";
 
 interface props {
-  title: String
+  title: String,
+  header2: boolean
 }
 
 const Header = ({
-  title
+  title,
+  header2
 
 }: props) => {
   const {setAuthenticate} = useContext(AuthContext)
@@ -32,12 +34,12 @@ const Header = ({
       </div>
       
     </header>
-    <header className="">
+    {header2 && <header className="h-[60px]">
       <div className="px-[24px] py-[12px] bg-main-secondary flex justify-between items-center">
         <SelectComponent value={"All"} options={[{label: "All", value: "all"}]} className="h-[36px]" />
         <SelectComponent calender={true}  value={"Today"} options={[{label: "Today", value: "today"}]} className="h-[36px]" />
       </div>
-    </header>
+    </header>}
     </>
   );
 };
