@@ -1,27 +1,47 @@
 import React from "react";
-import { Card } from "antd";
-import { Graph } from "../../../../assets/Images/index";
+import { Graph, GraphDown } from "../../../../assets/Images/index"; // ✅ Add a "down" image
 
-const FlatCard: React.FC = () => (
-  <Card
-    bordered={false}
-    style={{
-      width: 211,
-      height: 92,
-      boxShadow: "none",
-      background: "#f9fafb", // light gray bg
-    }}
-    bodyStyle={{ padding: 16 }} // 👈 custom body padding
-  >
-    <div className="flex justify-between items-center mb-[8px]">
-      <p style={{ fontSize: 14, color: "#67606E" }}>Total Active Users</p>
-      <img src={Graph} alt="Graph" />
+interface FlatCardProps {
+  value: number;       
+  percentage: number;   
+  label: string;    
+}
+
+const FlatCard: React.FC<FlatCardProps> = ({ value, percentage, label }) => {
+  const isPositive = percentage >= 0;
+
+  return (
+    <div
+      style={{
+        width: 211,
+        height: 92,
+        boxShadow: "none",
+        background: "#ffffff",
+        borderRadius: "4px",
+        padding: "16px",
+      }}
+    >
+      <div className="flex justify-between items-center mb-[8px]">
+        <p style={{ fontSize: 14, color: "#67606E" }}>{label}</p>
+        <img src={isPositive ? Graph : GraphDown} alt="Graph" />
+      </div>
+
+      <div className="flex justify-between items-center">
+        <h1 style={{ margin: 0, fontSize: "24px", fontWeight: "bold" }}>
+          {value}
+        </h1>
+        <p
+          style={{
+            color: isPositive ? "#148057" : "#FF1111", 
+            fontSize: 14,
+            fontWeight: 500,
+          }}
+        >
+          {isPositive ? `+${percentage}%` : `${percentage}%`}
+        </p>
+      </div>
     </div>
-    <div className="flex justify-between items-center">
-      <h3 style={{ margin: 0, fontSize: 24 }}>2847</h3>
-      <p style={{ color: "green",fontSize: 14 }}>+12.5%</p>
-    </div>
-  </Card>
-);
+  );
+};
 
 export default FlatCard;
