@@ -6,6 +6,5 @@ import Login from './Login'
 
 export {
     Dashboard,
-    Login
-    
+    Login,
 }

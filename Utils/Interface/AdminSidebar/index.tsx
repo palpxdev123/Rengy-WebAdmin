@@ -1,6 +1,6 @@
 
-import Dashboard from "../../../src/Pages/Dashboard/index";
 import { FaChartLine } from "react-icons/fa6";
+import { Dashboard } from "../../../src/Pages";
 export const SidebarItems = [
   {
     title: "Admin",
