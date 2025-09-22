@@ -71,10 +71,11 @@ const BookingChart: React.FC<BookingChartProps> = ({
           display: "flex",
           justifyContent: "space-between",
           alignItems: "center",
-          marginBottom: 16,
+          // marginBottom: 16,
           borderBottom: "1px #E2E2E3 solid",
-          padding: "12px 20px 12px 20px",
+          
         }}
+        className="p-[20px] h-[65px]"
       >
         <h2 style={{ margin: 0, fontSize: 18, fontWeight: 600 }}>
           Payment distribution
