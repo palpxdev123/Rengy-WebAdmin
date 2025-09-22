@@ -2,7 +2,7 @@ import React from "react";
 import { Graph, GraphDown } from "../../../../assets/Images/index"; // ✅ Add a "down" image
 
 interface FlatCardProps {
-  value: number;       
+  value: any;       
   percentage: number;   
   label: string;    
 }
