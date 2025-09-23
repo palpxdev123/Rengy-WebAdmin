@@ -1,10 +1,14 @@
-import { Notification } from "../../Components";
+import { Notification, SelectComponent } from "../../Components";
 import BookingChart from "../../Components/Chart";
+import LineChart from "../../Components/Line";
 import PageLayout from "../../Components/PageLayout";
 import "../../Styles/index.scss";
 import FlatCard from "./Components/Cards";
 import ConatctDashboardCard from "./Components/ContactCard";
 import "./style.scss";
+import { Profile } from "../../assets/Images";
+import ContactArea from "./Components/ContactsArea";
+import StagewiseProject from "./Components/DashboardTabSection";
 const Dashboard = () => {
   const dashboardData = {
     data: [
@@ -61,6 +65,73 @@ const Dashboard = () => {
       label: "Pending Approvals",
     },
   ];
+
+  const ContactData = [
+    {
+      profile_pic: Profile,
+      profile_name: "Nagraj",
+      phone_number: "+91 9980556655",
+      email: "savannah@gmail.com",
+    },
+    {
+      profile_pic: Profile,
+      profile_name: "Nagraj",
+      phone_number: "+91 9980556655",
+      email: "savannah@gmail.com",
+    },
+    {
+      profile_pic: Profile,
+      profile_name: "Nagraj",
+      phone_number: "+91 9980556655",
+      email: "savannah@gmail.com",
+    },
+    {
+      profile_pic: Profile,
+      profile_name: "Nagraj",
+      phone_number: "+91 9980556655",
+      email: "savannah@gmail.com",
+    },
+    {
+      profile_pic: Profile,
+      profile_name: "Nagraj",
+      phone_number: "+91 9980556655",
+      email: "savannah@gmail.com",
+    },
+  ];
+
+  const tabs = ["All", "Exceptional", "DPR Preparation", "Material Dispatched", "National"]
+
+  const Stagewiseproject = [
+    {
+      project_name: "Solar panel Installation",
+      Request_Id: "#REQ-123",
+      stage: "DPR Preparation stage",
+      expected_delivery_by: "12 Aug 2025",
+      requested_by: "Rajesh K"
+    },
+    {
+      project_name: "Solar panel Installation",
+      Request_Id: "#REQ-123",
+      stage: "DPR Preparation stage",
+      expected_delivery_by: "12 Aug 2025",
+      requested_by: "Rajesh K"
+    }
+    ,
+    {
+      project_name: "Solar panel Installation",
+      Request_Id: "#REQ-123",
+      stage: "DPR Preparation stage",
+      expected_delivery_by: "12 Aug 2025",
+      requested_by: "Rajesh K"
+    },
+    {
+      project_name: "Solar panel Installation",
+      Request_Id: "#REQ-123",
+      stage: "DPR Preparation stage",
+      expected_delivery_by: "12 Aug 2025",
+      requested_by: "Rajesh K"
+    }
+  ]
   return (
     <PageLayout title={"tatat"} header2={true}>
       <div className="flex justify-between">
@@ -79,6 +150,32 @@ const Dashboard = () => {
         />
         <ConatctDashboardCard />
         <Notification />
+      </div>
+      <div className="flex justify-between">
+        <div>
+          <div className="rounded-[4px] w-[775px] bg-white">
+            <div className="p-[20px] h-[65px] flex justify-between border-b-[1px] border-header items-center">
+              <div className="flex">
+                <p className=" pr-[8px]">Daily Vendor Flow</p>
+              </div>
+              <SelectComponent
+                value={"week"}
+                options={[{ label: "This week", value: "week" }]}
+              />
+            </div>
+            <div className=" p-[20px]">
+              <LineChart />
+            </div>
+          </div>
+        <StagewiseProject tabs={tabs} Stagewiseproject={Stagewiseproject} />
+        </div>
+
+        
+
+        
+        <div>
+          <ContactArea ContactData={ContactData} />
+        </div>
       </div>
     </PageLayout>
   );
