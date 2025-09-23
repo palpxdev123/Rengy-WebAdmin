@@ -1,4 +1,3 @@
-import { useRef, useMemo } from "react";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -8,10 +7,12 @@ import {
   Title,
   Tooltip,
   Legend,
+  type ChartOptions,
 } from "chart.js";
 import { Line } from "react-chartjs-2";
 import type { ChartData, ChartOptions, ChartDataset } from "chart.js";
 
+// Register chart.js modules
 ChartJS.register(
   CategoryScale,
   LinearScale,
@@ -22,8 +23,38 @@ ChartJS.register(
   Legend
 );
 
-const Linegraph: React.FC = () => {
-  const chartRef = useRef<ChartJS<"line"> | null>(null);
+const LineChart = () => {
+  const data = {
+    labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
+    datasets: [
+      {
+        label: "Sales",
+        data: [10, 20, 15, 30, 25, 40],
+        borderColor: "rgba(75,192,192,1)",
+        backgroundColor: "rgba(75,192,192,0.2)",
+        tension: 0.4, // smooth line
+        fill: true, // area under line
+        pointRadius: 0,
+      },
+    ],
+  };
+
+  const options: ChartOptions<"line"> = {
+    responsive: true,
+    scales: {
+      x: { grid: { display: false } },
+      y: { grid: { display: false } },
+    },
+    plugins: {
+      legend: {
+        position: "top",
+      },
+      title: {
+        display: true,
+        text: "Monthly Sales Data",
+      },
+    },
+  };
 
   const chartData: ChartData<"line"> = useMemo(() => {
     const chart = chartRef.current;
@@ -84,13 +115,10 @@ const Linegraph: React.FC = () => {
   };
 
   return (
-    <div
-      className="w-full max-w-3xl h-[350px] bg-white rounded-lg shadow-md p-5"
-      style={{ width: "760px", height: "284px" }} // fixed size
-    >
-      <Line ref={chartRef} data={chartData} options={chartOptions} />
+    <div>
+      <Line data={data} options={options} />
     </div>
   );
 };
 
-export default Linegraph;
+export default LineChart;

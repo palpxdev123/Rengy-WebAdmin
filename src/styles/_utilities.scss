@@ -30,7 +30,9 @@
 }
 
 .borderwe{
- border-right-color: $input-border;
+ border-right-color: $input-border;}
+.bg-chip-stage1{
+    background: $chip-stage1;
 }
 
 .main-bg{background-color: $main-bg-color;}
@@ -83,6 +85,10 @@
 .button-text-secondary { color: $primary-bg; }
 
 
+.scrollbarHidden::-webkit-scrollbar {
+  display: none;
+  width: 0;
+}
 
 
 

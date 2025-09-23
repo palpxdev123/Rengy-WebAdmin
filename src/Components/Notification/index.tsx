@@ -1,5 +1,3 @@
-import { notification } from "antd";
-import React from "react";
 import { CiFolderOn } from "react-icons/ci";
 
 import "./style.scss";
