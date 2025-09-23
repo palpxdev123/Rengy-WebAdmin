@@ -16,14 +16,26 @@
 
 .bg-light { background-color: $light; }
 
+.progress-bar { background-color: $progress-bar; }
+
+.progress-bg { background-color: $progress-bg; }
+
 .bg-main-primary{background-color: $primary-bg;}
+.border-main-primary{border: 1px solid $primary-bg;}
+
 
 .bg-main-secondary{background-color: $white;}
 .black-color{
     color: $black
 }
 
+.borderwe{
+ border-right-color: $input-border;
+}
+
 .main-bg{background-color: $main-bg-color;}
+
+.pending-bg{background-color: $pending-bg;}
 
 .menu-active{background-color: $menu-active;}
 .menu-active-border{border-left-color: $menu-active;}
@@ -35,13 +47,18 @@
 
 .search-icon{color: $search-icon;}
 
+.text-light-secondary{color: $search-icon;}
+
 .icon-background{background: $icon-background;}
 
 // .menu-active{background-color: $menu-active;}
 
 .menu-text-active{color: $menu-active;}
 
+.view-text{color: $view-green;}
+
 .header-border-bottom{border-bottom: 1px solid $secondary-bg;}
+.border-bottom-second{border-bottom: 1px solid $input-border;}
  
 // Text color utilities
 
@@ -60,6 +77,12 @@
 .text-light { color: $light; }
 
 .text-white { color: $white; }
+
+.button-text { color: $button-text; }
+
+.button-text-secondary { color: $primary-bg; }
+
+
 
 
 

@@ -1,6 +1,8 @@
 import { Notification } from "../../Components";
 import BookingChart from "../../Components/Chart";
 import PageLayout from "../../Components/PageLayout";
+import ProgressBar from "../../Components/Range";
+import RequestsApprovalCard from "../../Components/RequestsApproval";
 import "../../Styles/index.scss";
 import FlatCard from "./Components/Cards";
 import ConatctDashboardCard from "./Components/ContactCard";
@@ -33,6 +35,17 @@ const Dashboard = () => {
     { label: "Today", value: "today" },
     { label: "This Week", value: "week" },
   ];
+
+  const requestData = {
+    title: "Discount Approval",
+    description: "Requesting discount to close sale (after SO is created)",
+    projectId: "#PRJ-1230",
+    status: "Pending" as const,
+    vendor: "ABC Solr Pvt. Ltd.",
+    amount: "₹15,000",
+    date: "13 Jan 2025",
+    flow: "Operation Head → MD",
+  };
 
   const DashboardCardvalue = [
     {
@@ -79,6 +92,10 @@ const Dashboard = () => {
         />
         <ConatctDashboardCard />
         <Notification />
+      </div>
+      <div>
+        <ProgressBar/>
+        <RequestsApprovalCard request={requestData} />
       </div>
     </PageLayout>
   );

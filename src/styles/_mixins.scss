@@ -9,6 +9,11 @@
   font-weight: 600;
   line-height: 20px;
 }
+@mixin sidehtwo() {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 140%;
+}
 @mixin hthree() {
   font-size: 16px;
   font-weight: 500;
@@ -16,6 +21,11 @@
 }
 @mixin hfour(){
   font-size: 16px;
+  font-weight: 500;
+  line-height: 140%;
+}
+@mixin hfive(){
+  font-size: 14px;
   font-weight: 500;
   line-height: 140%;
 }
@@ -33,3 +43,14 @@
   font-size: 14px;
   line-height: 20px;
 }
+@mixin text-four() {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 140%;
+}
+@mixin text-five() {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 140%;
+}
+
