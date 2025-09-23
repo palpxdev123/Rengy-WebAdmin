@@ -23,6 +23,10 @@
     color: $black
 }
 
+.bg-chip-stage1{
+    background: $chip-stage1;
+}
+
 .main-bg{background-color: $main-bg-color;}
 
 .menu-active{background-color: $menu-active;}
@@ -60,6 +64,11 @@
 .text-light { color: $light; }
 
 .text-white { color: $white; }
+
+.scrollbarHidden::-webkit-scrollbar {
+  display: none;
+  width: 0;
+}
 
 
 
