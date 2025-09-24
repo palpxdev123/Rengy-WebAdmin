@@ -12,7 +12,7 @@ interface props {
 
 const ContactCard = ({ title, viewAllAction, items }: props) => {
   return (
-    <div className="bg-white w-[368px] h-[303px] rounded-[4px] ">
+    <div className="bg-white h-[303px] rounded-[4px] ">
       <div className="p-[20px] flex justify-between border-b-[1px] border-header items-center">
         <div className="flex">
           <p className="pr-[8px] hthree">{title}</p>
