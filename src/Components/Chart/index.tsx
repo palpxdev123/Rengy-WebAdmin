@@ -60,11 +60,12 @@ const BookingChart: React.FC<BookingChartProps> = ({
   return (
     <div
       style={{
-        width: 368,
+        // width: 368,
         height: 426,
         borderRadius: "4px",
         backgroundColor: "#ffffff",
       }}
+      className="w-full"
     >
       <article
         style={{

@@ -8,7 +8,7 @@ interface props {
 const StagewiseProject = ({tabs, Stagewiseproject}:props) => {
   const [active, setActive] = useState("All")
   return (
-    <div className="rounded-[4px] w-[775px] bg-white mt-[24px]">
+    <div className="rounded-[4px]  bg-white mt-[24px]">
       <div className="p-[20px] h-[65px] border-b-[1px] border-header items-center">
         <div className="flex justify-between">
           <p className=" pr-[8px]">Stage Wise Projects</p>
