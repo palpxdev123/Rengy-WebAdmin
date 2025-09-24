@@ -20,6 +20,7 @@ const PageLayout = ({
   DashboardCardvalue,
   ContactData
 }: props) => {
+
   return (
     <div>
       <Header title={title} header2={header2} />

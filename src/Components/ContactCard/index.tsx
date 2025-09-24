@@ -1,4 +1,6 @@
-import { Profile } from "../../assets/Images";
+
+import { memo } from "react";
+
 
 interface props {
   title: String;
@@ -7,6 +9,9 @@ interface props {
 }
 
 const ContactCard = ({ title, viewAllAction, items }: props) => {
+
+  console.log("rendering...");
+  
   return (
     <div className="bg-white h-[303px] rounded-[4px] ">
       <div className="p-[20px] flex justify-between border-b-[1px] border-header items-center">
@@ -40,4 +45,4 @@ const ContactCard = ({ title, viewAllAction, items }: props) => {
   );
 };
 
-export default ContactCard;
+export default memo(ContactCard);
