@@ -1,4 +1,8 @@
 import { Profile } from "../../assets/Images";
+import "../Typo/style.scss";
+import "../../styles/_utilities.scss";
+
+
 
 interface props {
   title: String;
@@ -11,11 +15,11 @@ const ContactCard = ({ title, viewAllAction, items }: props) => {
     <div className="bg-white h-[303px] rounded-[4px] ">
       <div className="p-[20px] flex justify-between border-b-[1px] border-header items-center">
         <div className="flex">
-          <p className="pr-[8px]">{title}</p>
+          <p className="pr-[8px] hthree">{title}</p>
         </div>
         <div
           onClick={() => viewAllAction()}
-          className="cursor pointer view_all cursor-pointer"
+          className="cursor pointer view_all cursor-pointer sidehtwo"
         >
           View All
         </div>
@@ -27,10 +31,10 @@ const ContactCard = ({ title, viewAllAction, items }: props) => {
               <img src={value?.profile_pic} height={20} />
             </div>
             <div className="">
-              <p>{value?.profile_name}</p>
+              <p className="text-six">{value?.profile_name}</p>
               <div className="flex justify-center items-center">
-                <p className="search-icon border-r-[1px] pr-[8px] borderwe">{value?.phone_number}</p>
-                <p className="search-icon">{value?.email}</p>
+                <p className="search-icon border-r-[1px] pr-[8px] borderwe text-two">{value?.phone_number}</p>
+                <p className="search-icon text-two">{value?.email}</p>
               </div>
             </div>
           </div>

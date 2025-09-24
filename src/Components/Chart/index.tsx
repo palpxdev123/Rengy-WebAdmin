@@ -3,6 +3,8 @@ import { Doughnut } from "react-chartjs-2";
 import type { ChartOptions, ChartData } from "chart.js";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import SelectComponent from "../Select";
+import "../Typo/style.scss";
+import "../../styles/_utilities.scss";
 
 // ⚡ Register chart.js components
 ChartJS.register(ArcElement, Tooltip, Legend);
@@ -49,7 +51,7 @@ const BookingChart: React.FC<BookingChartProps> = ({
 
   const options: ChartOptions<"doughnut"> = {
     responsive: true,
-    maintainAspectRatio: false, // ✅ important for fixed sizing
+    maintainAspectRatio: false,
     plugins: {
       legend: {
         display: false,
@@ -78,7 +80,7 @@ const BookingChart: React.FC<BookingChartProps> = ({
         }}
         className="p-[20px] h-[65px]"
       >
-        <h2 style={{ margin: 0, fontSize: 18, fontWeight: 600 }}>
+        <h2 style={{ margin: 0}} className="hthree text-secondary">
           Payment distribution
         </h2>
 
@@ -111,13 +113,9 @@ const BookingChart: React.FC<BookingChartProps> = ({
           <div className="flex gap-[8px]">
             <div className="h-[8px] w-[8px] rounded bg-[#27D392] mt-[8px]"></div>
             <div className="flex flex-col ">
-              <p style={{ fontSize: "18px", fontWeight: "500" }}>60%</p>
+              <p className="hsix text-secondary">60%</p>
               <p
-                style={{
-                  color: "#67606E",
-                  fontSize: "14px",
-                  fontWeight: "400",
-                }}
+              className="text-two text-light-secondary"
               >
                 National banks
               </p>
@@ -127,13 +125,9 @@ const BookingChart: React.FC<BookingChartProps> = ({
           <div className="flex gap-[8px]">
             <div className="h-[8px] w-[8px] rounded bg-[#36BCEC] mt-[8px]"></div>
             <div className="flex flex-col ">
-              <p style={{ fontSize: "18px", fontWeight: "500" }}>30%</p>
+              <p className="hsix text-secondary">30%</p>
               <p
-                style={{
-                  color: "#67606E",
-                  fontSize: "14px",
-                  fontWeight: "400",
-                }}
+                className="text-two text-light-secondary"
               >
                 NBFC
               </p>
@@ -143,13 +137,9 @@ const BookingChart: React.FC<BookingChartProps> = ({
           <div className="flex gap-[8px]">
             <div className="h-[8px] w-[8px] rounded bg-[#0C6946] mt-[8px]"></div>
             <div className="flex flex-col ">
-              <p style={{ fontSize: "18px", fontWeight: "500" }}>10%</p>
+              <p className="hsix text-secondary">10%</p>
               <p
-                style={{
-                  color: "#67606E",
-                  fontSize: "14px",
-                  fontWeight: "400",
-                }}
+                className="text-two text-light-secondary"
               >
                 Direct payment
               </p>

@@ -59,7 +59,7 @@ const SelectComponent: React.FC<SelectComponentProps> = ({
       {label && <label htmlFor={name}>{label}</label>}
       <Select
         id={name} // ✅ use id instead of name
-        suffixIcon={ calender ? <div  className="pl-[8px]"><img src={CalenderIcon} style={{ marginLeft: "8px", width: 16, height: 16 }} /></div> : null}
+        suffixIcon={ calender && <div  className="pl-[8px]"><img src={CalenderIcon} style={{ marginLeft: "8px", width: 16, height: 16 }} /></div> }
         mode={mode}
         placeholder={placeholder}
         value={value ?? undefined}
@@ -74,7 +74,8 @@ const SelectComponent: React.FC<SelectComponentProps> = ({
         searchValue={searchValue}
         // searchValue={searchValue}
 
-        style={{height: 36}}
+        style={{ height: 36, fontFamily: "General Sans, sans-serif" }}
+        
       />
       {error && touched && <div style={{ color: "red" }}>{error}</div>}
     </div>
