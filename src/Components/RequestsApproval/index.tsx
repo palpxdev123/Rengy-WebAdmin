@@ -29,7 +29,7 @@ const RequestsApprovalCard: React.FC<RequestsApprovalCardProps> = ({
   };
 
   return (
-    <div className="w-[760px] h-auto bg-main-secondary mt-[16px]">
+    <div className="w-[775px] h-auto bg-main-secondary mt-[16px]">
       {/* Header */}
       <div className="h-[60px] border-bottom-second p-[20px] flex justify-between items-center">
         <div className="flex items-center w-[233px] justify-between">
@@ -40,7 +40,7 @@ const RequestsApprovalCard: React.FC<RequestsApprovalCardProps> = ({
       </div>
 
       {/* Request Info */}
-      <div className="flex p-[20px] justify-between items-center">
+      <div className="flex px-[40px] py-[20px] justify-between items-center">
         <div>
           <h1 className="hfour text-secondary">{request.title}</h1>
           <p className="text-four text-light-secondary">
@@ -62,7 +62,7 @@ const RequestsApprovalCard: React.FC<RequestsApprovalCardProps> = ({
       </div>
 
       {/* Vendor / Amount / Date */}
-      <div className="flex justify-between items-center p-[20px]">
+      <div className="flex justify-between items-center px-[40px] py-[20px]">
         <div>
           <p className="text-four mb-[6px] text-light-secondary">
             Vendors/Operation Team
@@ -84,22 +84,16 @@ const RequestsApprovalCard: React.FC<RequestsApprovalCardProps> = ({
       </div>
 
       {/* Actions */}
-      <div className="flex justify-between items-center px-[20px]">
+      <div className="flex justify-between items-center px-[40px]">
         <h1 className="view-text hfour">View Details</h1>
         <div className="flex gap-[16px]">
             <Buttoncomponent type="primary" label="Reject"/>
             <Buttoncomponent  type="secondary" label="Approve" />
-          {/* <button className="hfour button-text-secondary border-main-primary px-[20px] py-[10px] rounded-[4px] w-[125px] h-[40px] flex justify-center items-center">
-            Reject
-          </button>
-          <button className="hfour button-text bg-main-primary px-[20px] py-[10px] rounded-[4px] w-[125px] h-[40px] flex justify-center items-center border-none">
-            Approve
-          </button> */}
         </div>
       </div>
 
       {/* Approval Flow */}
-      <div className="mt-[12px] flex ps-[20px] pb-[20px]">
+      <div className="mt-[12px] flex ps-[40px] pb-[20px]">
         <h1 className="hfive text-light-secondary">Approval Flow: </h1>
         <span className="text-four text-light-secondary">{request.flow}</span>
       </div>

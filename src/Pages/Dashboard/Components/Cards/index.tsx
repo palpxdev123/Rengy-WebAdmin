@@ -1,10 +1,12 @@
 import React from "react";
-import { Graph, GraphDown } from "../../../../assets/Images/index"; // ✅ Add a "down" image
+import { Graph, GraphDown } from "../../../../assets/Images/index";
+import "../../../../Components/Typo/style.scss";
+import "../../../../styles/_utilities.scss";
 
 interface FlatCardProps {
-  value: any;       
-  percentage: number;   
-  label: string;    
+  value: any;
+  percentage: number;
+  label: string;
 }
 
 const FlatCard: React.FC<FlatCardProps> = ({ value, percentage, label }) => {
@@ -22,20 +24,16 @@ const FlatCard: React.FC<FlatCardProps> = ({ value, percentage, label }) => {
       }}
     >
       <div className="flex justify-between items-center mb-[8px]">
-        <p style={{ fontSize: 14, color: "#67606E" }}>{label}</p>
+        <p className="text-one text-light-secondary">{label}</p>
         <img src={isPositive ? Graph : GraphDown} alt="Graph" />
       </div>
 
-      <div className="flex justify-between items-center">
-        <h1 style={{ margin: 0, fontSize: "24px", fontWeight: "bold" }}>
+      <div className="flex justify-between items-center ">
+        <h1 style={{ margin: 0 }} className="hone text-secondary">
           {value}
         </h1>
         <p
-          style={{
-            color: isPositive ? "#148057" : "#FF1111", 
-            fontSize: 14,
-            fontWeight: 500,
-          }}
+         className={`text-one ${isPositive ? "increase-color" : "decrease-color"}`}
         >
           {isPositive ? `+${percentage}%` : `${percentage}%`}
         </p>

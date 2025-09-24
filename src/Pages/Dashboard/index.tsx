@@ -145,6 +145,16 @@ const Dashboard = () => {
       requested_by: "Rajesh K"
     }
   ]
+  const sampleRequest = {
+    title: "Discount Approval",
+    description: "Requesting discount to close sale (after SO is created)",
+    projectId: "PRJ-1230",
+    status: "Pending" as const,
+    vendor: "ABC Solr Pvt. Ltd.",
+    amount: "$15,000",
+    date: "13 Jan 2025",
+    flow: "  Operation Head→ MD ",
+  };
   return (
     <PageLayout title={"tatat"} header2={true}>
       <div className="flex justify-between">
@@ -181,6 +191,8 @@ const Dashboard = () => {
             </div>
           </div>
         <StagewiseProject tabs={tabs} Stagewiseproject={Stagewiseproject} />
+        <ProgressBar/>
+         <RequestsApprovalCard request={sampleRequest} />
         </div>
 
         

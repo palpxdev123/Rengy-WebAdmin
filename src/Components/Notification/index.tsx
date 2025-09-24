@@ -40,16 +40,16 @@ const Notification = () => {
     <div className="bg-white w-[368px] h-[426px] rounded-[4px] ">
       <div className="p-[20px] flex justify-between border-b-[1px] border-header items-center">
         <div className="flex">
-          <p className="border-r-[1px] pr-[8px] borderwe">Notifications</p>
-          <p className="pl-[8px] search-icon">14 unreads</p>
+          <p className="border-r-[1px] pr-[8px] borderwe hthree text-secondary">Notifications</p>
+          <p className="pl-[8px] search-icon text-two">14 unreads</p>
         </div>
-        <p className="cursor pointer view_all cursor-pointer">View All</p>
+        <p className="cursor pointer view_all cursor-pointer sidehtwo">View All</p>
       </div>
       <div className="px-[20px] pt-[17px] pb-[9px]">
         {
             notification_structure?.map((items)=>(
                 <>
-                <p className="search-icon">{items?.period}</p>
+                <p className="search-icon hfive">{items?.period}</p>
                 <div className="pt-[4px]">
                     {
                     items?.data?.map((value)=>(
@@ -58,8 +58,8 @@ const Notification = () => {
                                 <CiFolderOn size={20} color="view_all" />
                             </div>
                             <div className="">
-                                <p>{value?.notification_type}</p>
-                                 <p className="search-icon">{value?.created_at}</p>
+                                <p className="hfour text-secondary">{value?.notification_type}</p>
+                                 <p className="search-icon text-four">{value?.created_at}</p>
                             </div>
                         </div>
                     ))

@@ -1,6 +1,7 @@
 
 import { FaChartLine } from "react-icons/fa6";
 import { Dashboard } from "../../../src/Pages";
+import ApprovalManagement from "../../../src/Pages/ApprovalManagement";
 export const SidebarItems = [
   {
     title: "Admin",
@@ -10,7 +11,7 @@ export const SidebarItems = [
   },
   {
     title: "Children",
-    element: <Dashboard />,
+    element: <ApprovalManagement />,
     route: "/child",
     icon: <FaChartLine />,
     children: [

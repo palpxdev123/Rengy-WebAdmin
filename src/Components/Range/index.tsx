@@ -17,7 +17,7 @@ const teams= [
 
 const ProgressBar = () => {
   return (
-    <div className="w-[760px] h-[344px] bg-main-secondary">
+    <div className="w-[775px] h-[344px] bg-main-secondary">
       <div className="h-[60px] border-bottom-second p-[20px]">
         <h1 className="text-one">Team Performance</h1>
       </div>
