@@ -133,27 +133,19 @@ const Dashboard = () => {
     }
   ]
   return (
-    <PageLayout title={"tatat"} header2={true}>
-      <div className="flex justify-between">
-        {DashboardCardvalue?.map((item) => (
-          <FlatCard
-            value={item?.value}
-            percentage={item?.percentage}
-            label={item?.label}
-          />
-        ))}
-      </div>
-      <div className="py-[24px] flex justify-between">
+    <PageLayout title={"tatat"} header2={true} DashboardCardvalue={DashboardCardvalue} ContactData={ContactData} >
+      
+      <div className=" flex justify-between gap-[24px]">
         <BookingChart
           dashboardData={dashboardData}
           optionsSelect={optionsSelect}
         />
         <ConatctDashboardCard />
-        <Notification />
+        {/* <Notification /> */}
       </div>
-      <div className="flex justify-between">
-        <div>
-          <div className="rounded-[4px] w-[775px] bg-white">
+      <div className="flex justify-between py-[24px]">
+        <div className="w-[100%]">
+          <div className="rounded-[4px] w-full bg-white">
             <div className="p-[20px] h-[65px] flex justify-between border-b-[1px] border-header items-center">
               <div className="flex">
                 <p className=" pr-[8px]">Daily Vendor Flow</p>
@@ -174,7 +166,7 @@ const Dashboard = () => {
 
         
         <div>
-          <ContactArea ContactData={ContactData} />
+          {/* <ContactArea ContactData={ContactData} /> */}
         </div>
       </div>
     </PageLayout>

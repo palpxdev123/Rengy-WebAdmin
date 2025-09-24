@@ -13,13 +13,14 @@ const FlatCard: React.FC<FlatCardProps> = ({ value, percentage, label }) => {
   return (
     <div
       style={{
-        width: 211,
+        // width: 211,
         height: 92,
         boxShadow: "none",
         background: "#ffffff",
         borderRadius: "4px",
         padding: "16px",
       }}
+      className="w-full"
     >
       <div className="flex justify-between items-center mb-[8px]">
         <p style={{ fontSize: 14, color: "#67606E" }}>{label}</p>

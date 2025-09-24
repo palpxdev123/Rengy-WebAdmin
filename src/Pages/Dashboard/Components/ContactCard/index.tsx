@@ -61,7 +61,7 @@ const ConatctDashboardCard = () => {
   ];
 
   return (
-    <div className="bg-white w-[368px] h-[426px] rounded-[4px] ">
+    <div className="bg-white w-full h-[426px] rounded-[4px] ">
       <div className="menu-active rounded-[4px]">
         <div className="p-[20px] flex justify-between border-b-[1px] border-header items-center">
           <div className="flex">
