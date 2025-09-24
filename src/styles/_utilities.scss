@@ -1,76 +1,174 @@
 @use "variables" as *;
- 
+
 // Background color utilities
 
-.bg-primary { background-color: $primary; }
-
-.bg-secondary { background-color: $secondary; }
-
-.bg-danger { background-color: $danger; }
-
-.bg-warning { background-color: $warning; }
-
-.bg-info { background-color: $info; }
-
-.bg-dark { background-color: $dark; }
-
-.bg-light { background-color: $light; }
-
-.bg-main-primary{background-color: $primary-bg;}
-
-.bg-main-secondary{background-color: $white;}
-.black-color{
-    color: $black
+.bg-primary {
+  background-color: $primary;
 }
 
-.bg-chip-stage1{
-    background: $chip-stage1;
+.bg-secondary {
+  background-color: $secondary;
 }
 
-.main-bg{background-color: $main-bg-color;}
-
-.menu-active{background-color: $menu-active;}
-.menu-active-border{border-left-color: $menu-active;}
-.menu-active-bg{
-    background-color: $menu-bg-child;
+.bg-danger {
+  background-color: $danger;
 }
 
-.input-border{border: 1px solid $input-border;}
+.bg-warning {
+  background-color: $warning;
+}
 
-.search-icon{color: $search-icon;}
+.bg-info {
+  background-color: $info;
+}
 
-.icon-background{background: $icon-background;}
+.bg-dark {
+  background-color: $dark;
+}
+
+.bg-light {
+  background-color: $light;
+}
+
+.progress-bar {
+  background-color: $progress-bar;
+}
+
+.progress-bg {
+  background-color: $progress-bg;
+}
+
+.bg-main-primary {
+  background-color: $primary-bg;
+}
+.border-main-primary {
+  border: 2px solid $primary-bg;
+}
+
+.bg-main-secondary {
+  background-color: $white;
+}
+.black-color {
+  color: $black;
+}
+
+.borderwe {
+  border-right-color: $input-border;
+}
+.bg-chip-stage1 {
+  background: $chip-stage1;
+}
+
+.main-bg {
+  background-color: $main-bg-color;
+}
+
+.pending-bg {
+  background-color: $pending-bg;
+}
+.rejected-bg {
+  background-color: $rejected-bg;
+}
+.approved-bg {
+  background-color: $approved-bg;
+}
+.select-text {
+  color: $select-text;
+}
+
+.menu-active {
+  background-color: $menu-active;
+}
+.menu-active-border {
+  border-left-color: $menu-active;
+}
+.menu-active-bg {
+  background-color: $menu-bg-child;
+}
+
+.input-border {
+  border: 1px solid $input-border;
+}
+
+.search-icon {
+  color: $search-icon;
+}
+
+.text-light-secondary {
+  color: $search-icon;
+}
+
+.icon-background {
+  background: $icon-background;
+}
 
 // .menu-active{background-color: $menu-active;}
 
-.menu-text-active{color: $menu-active;}
+.menu-text-active {
+  color: $menu-active;
+}
 
-.header-border-bottom{border-bottom: 1px solid $secondary-bg;}
- 
+.view-text {
+  color: $view-green;
+}
+
+.header-border-bottom {
+  border-bottom: 1px solid $secondary-bg;
+}
+.border-bottom-second {
+  border-bottom: 1px solid $input-border;
+}
+
 // Text color utilities
 
-.text-primary { color: $primary; }
+.text-primary {
+  color: $primary;
+}
 
-.text-secondary { color: $text-secondary; }
+.text-secondary {
+  color: $text-secondary;
+}
 
-.text-danger { color: $danger; }
+.text-danger {
+  color: $danger;
+}
 
-.text-warning { color: $warning; }
+.text-warning {
+  color: $warning;
+}
 
-.text-info { color: $info; }
+.text-info {
+  color: $info;
+}
 
-.text-dark { color: $dark; }
+.text-dark {
+  color: $dark;
+}
 
-.text-light { color: $light; }
+.text-light {
+  color: $light;
+}
 
-.text-white { color: $white; }
+.text-white {
+  color: $white;
+}
+
+.button-text {
+  color: $button-text;
+}
+
+.button-text-secondary {
+  color: $primary-bg;
+}
 
 .scrollbarHidden::-webkit-scrollbar {
   display: none;
   width: 0;
 }
 
-
-
-
- 
+.increase-color {
+  color: $increase-color;
+}
+.decrease-color {
+  color: $decrease-color;
+}
