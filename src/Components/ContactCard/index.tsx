@@ -1,3 +1,5 @@
+
+import { memo } from "react";
 import { Profile } from "../../assets/Images";
 import "../Typo/style.scss";
 import "../../styles/_utilities.scss";
@@ -11,6 +13,9 @@ interface props {
 }
 
 const ContactCard = ({ title, viewAllAction, items }: props) => {
+
+  console.log("rendering...");
+  
   return (
     <div className="bg-white h-[303px] rounded-[4px] ">
       <div className="p-[20px] flex justify-between border-b-[1px] border-header items-center">
@@ -44,4 +49,4 @@ const ContactCard = ({ title, viewAllAction, items }: props) => {
   );
 };
 
-export default ContactCard;
+export default memo(ContactCard);

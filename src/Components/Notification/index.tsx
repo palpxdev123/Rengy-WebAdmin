@@ -36,6 +36,8 @@ const Notification = () => {
       ],
     },
   ];
+
+  
   return (
     <div className="bg-white h-[426px] rounded-[4px] mb-[24px]">
       <div className="p-[20px] flex justify-between border-b-[1px] border-header items-center">
