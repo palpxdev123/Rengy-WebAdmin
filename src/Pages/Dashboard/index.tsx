@@ -112,7 +112,13 @@ const Dashboard = () => {
     },
   ];
 
-  const tabs = ["All", "Exceptional", "DPR Preparation", "Material Dispatched", "National"]
+  const tabs = [
+    "All",
+    "Exceptional",
+    "DPR Preparation",
+    "Material Dispatched",
+    "National",
+  ];
 
   const Stagewiseproject = [
     {
@@ -120,31 +126,30 @@ const Dashboard = () => {
       Request_Id: "#REQ-123",
       stage: "DPR Preparation stage",
       expected_delivery_by: "12 Aug 2025",
-      requested_by: "Rajesh K"
+      requested_by: "Rajesh K",
     },
     {
       project_name: "Solar panel Installation",
       Request_Id: "#REQ-123",
       stage: "DPR Preparation stage",
       expected_delivery_by: "12 Aug 2025",
-      requested_by: "Rajesh K"
-    }
-    ,
-    {
-      project_name: "Solar panel Installation",
-      Request_Id: "#REQ-123",
-      stage: "DPR Preparation stage",
-      expected_delivery_by: "12 Aug 2025",
-      requested_by: "Rajesh K"
+      requested_by: "Rajesh K",
     },
     {
       project_name: "Solar panel Installation",
       Request_Id: "#REQ-123",
       stage: "DPR Preparation stage",
       expected_delivery_by: "12 Aug 2025",
-      requested_by: "Rajesh K"
-    }
-  ]
+      requested_by: "Rajesh K",
+    },
+    {
+      project_name: "Solar panel Installation",
+      Request_Id: "#REQ-123",
+      stage: "DPR Preparation stage",
+      expected_delivery_by: "12 Aug 2025",
+      requested_by: "Rajesh K",
+    },
+  ];
   const sampleRequest = {
     title: "Discount Approval",
     description: "Requesting discount to close sale (after SO is created)",
@@ -156,8 +161,12 @@ const Dashboard = () => {
     flow: "  Operation Head→ MD ",
   };
   return (
-    <PageLayout title={"tatat"} header2={true} DashboardCardvalue={DashboardCardvalue} ContactData={ContactData} >
-      
+    <PageLayout
+      title={"tatat"}
+      header2={true}
+      DashboardCardvalue={DashboardCardvalue}
+      ContactData={ContactData}
+    >
       <div className=" flex justify-between gap-[24px]">
         <BookingChart
           dashboardData={dashboardData}
@@ -182,17 +191,13 @@ const Dashboard = () => {
               <LineChart />
             </div>
           </div>
-        <StagewiseProject tabs={tabs} Stagewiseproject={Stagewiseproject} />
-        <ProgressBar/>
-         <RequestsApprovalCard request={sampleRequest} />
+          <StagewiseProject tabs={tabs} Stagewiseproject={Stagewiseproject} />
+          <ProgressBar />
+          <RequestsApprovalCard request={sampleRequest} showAltHeader showActions/>
+          <RequestsApprovalCard request={sampleRequest} />
         </div>
 
-        
-
-        
-        <div>
-          {/* <ContactArea ContactData={ContactData} /> */}
-        </div>
+        <div>{/* <ContactArea ContactData={ContactData} /> */}</div>
       </div>
     </PageLayout>
   );
