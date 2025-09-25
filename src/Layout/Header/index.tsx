@@ -7,7 +7,7 @@ import SelectComponent from "../../Components/Select";
 import"../../Components/Typo/style.scss";
 
 interface props {
-  title: String,
+  title?: String,
   header2: boolean
 }
 

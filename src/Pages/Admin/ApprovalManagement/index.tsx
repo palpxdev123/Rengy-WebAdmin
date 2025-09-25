@@ -1,8 +1,8 @@
-import React from "react";
-import "../../styles/_utilities.scss";
-import "../../Components/Typo/style.scss";
-import Input from "../../Components/Input";
-import { SelectComponent } from "../../Components";
+
+import "../../../styles/_utilities.scss";
+import "../../../Components/Typo/style.scss";
+import { Input, SelectComponent } from "../../../Components";
+
 
 const ApprovalManagement = () => {
   return (

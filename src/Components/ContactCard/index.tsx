@@ -1,6 +1,5 @@
 
 import { memo } from "react";
-import { Profile } from "../../assets/Images";
 import "../Typo/style.scss";
 import "../../styles/_utilities.scss";
 
@@ -9,7 +8,7 @@ import "../../styles/_utilities.scss";
 interface props {
   title: String;
   viewAllAction: () => void;
-  items: any[];
+  items?: any[];
 }
 
 const ContactCard = ({ title, viewAllAction, items }: props) => {

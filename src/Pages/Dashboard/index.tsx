@@ -173,7 +173,6 @@ const Dashboard = () => {
           optionsSelect={optionsSelect}
         />
         <ConatctDashboardCard />
-        {/* <Notification /> */}
       </div>
       <div className="flex justify-between py-[24px]">
         <div className="w-[100%]">
