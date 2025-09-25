@@ -1,6 +1,9 @@
 import React from "react";
 import { Select } from "antd";
 import type { SelectProps } from "antd";
+import { CalendarOutlined } from "@ant-design/icons";
+import './style.scss'
+import { CalenderIcon } from "../../assets/Images";
 
 interface OptionType {
   label: string;
@@ -26,6 +29,8 @@ interface SelectComponentProps {
   /** custom prop, not passed to antd Select */
   name?: string;
   onClear?: () => void;
+  calender?:boolean
+
 }
 
 const SelectComponent: React.FC<SelectComponentProps> = ({
@@ -45,13 +50,16 @@ const SelectComponent: React.FC<SelectComponentProps> = ({
   searchValue,
   filterOption,
   name, // ✅ only used internally, not passed to <Select>
+  calender,
   onClear,
+
 }) => {
   return (
     <div className={className}>
       {label && <label htmlFor={name}>{label}</label>}
       <Select
         id={name} // ✅ use id instead of name
+        suffixIcon={ calender && <div  className="pl-[8px]"><img src={CalenderIcon} style={{ marginLeft: "8px", width: 16, height: 16 }} /></div> }
         mode={mode}
         placeholder={placeholder}
         value={value ?? undefined}
@@ -65,6 +73,9 @@ const SelectComponent: React.FC<SelectComponentProps> = ({
         onClear={onClear}
         searchValue={searchValue}
         // searchValue={searchValue}
+
+        style={{ height: 36, fontFamily: "General Sans, sans-serif" }}
+        
       />
       {error && touched && <div style={{ color: "red" }}>{error}</div>}
     </div>

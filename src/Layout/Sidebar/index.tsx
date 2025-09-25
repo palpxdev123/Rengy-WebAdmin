@@ -5,6 +5,7 @@ import { NavLink, useLocation } from "react-router-dom";
 import { RengyLogo } from "../../assets/Images";
 import { FaChevronDown, FaChevronUp } from "react-icons/fa6";
 import { useEffect } from "react";
+import"../../Components/Typo/style.scss";
 
 const Sidebar = ({ toggle, setToggle }: any) => {
   const location = useLocation();
@@ -22,7 +23,7 @@ const Sidebar = ({ toggle, setToggle }: any) => {
   const recursionFunction = (items: any, child: string, title: any) => {
     return (
       <div
-        className={`flex flex-col gap-[8px] ${
+        className={`flex flex-col gap-[8px] text-one ${
           child === "child" && "ml-[12px] "
         }`}
       >
@@ -88,7 +89,7 @@ const Sidebar = ({ toggle, setToggle }: any) => {
                         : "text-white"
                     } py-[10px] px-[12px] rounded-[4px] flex justify-between  cursor-pointer items-center transition-all duration-100 ease-in-out`}
                   >
-                    <div className="flex items-center gap-[8px] ">
+                    <div className="flex items-center gap-[8px] text-two">
                       {menu?.icon}
                       {menu?.title}{" "}
                     </div>

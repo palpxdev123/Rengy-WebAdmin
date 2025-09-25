@@ -1,0 +1,45 @@
+@use "../../styles/mixins" as *;
+@use "../../styles/variables" as *;
+
+.hone{
+    @include hone();
+}
+.htwo{
+    @include htwo();
+}
+.sidehtwo{
+    @include sidehtwo();
+}
+.hthree{
+    @include hthree();
+}
+.hfour{
+    @include hfour();
+}
+.hfive{
+    @include hfive();
+}
+.text-one{
+    @include text-one();
+}
+.text-two{
+    @include text-two();
+}
+.text-three{
+    @include text-three();
+}
+.text-four{
+    @include text-four();
+}
+.text-five{
+    @include text-five();
+}
+.text-six{
+    @include text-six();
+}
+.text-seven{
+    @include text-seven();
+}
+.hsix{
+    @include hsix();
+}
