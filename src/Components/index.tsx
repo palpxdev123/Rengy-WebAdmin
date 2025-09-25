@@ -6,6 +6,7 @@ import Input from "./Input"
 import SelectComponent from "./Select"
 import TableComponent from "./TableComponent"
 import DropdownComponent from "./DropdownComponent"
+import Buttoncomponent from "./Button"
 
 
 
@@ -16,5 +17,6 @@ export {
     ContactCard,
     Popup,
     TableComponent,
-    DropdownComponent
+    DropdownComponent,
+    Buttoncomponent
 }

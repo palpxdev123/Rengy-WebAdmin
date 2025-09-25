@@ -1,30 +1,36 @@
 import React from "react";
 import { Modal } from "antd";
 import "./style.scss";
-import { Footer } from "antd/es/layout/layout";
+import Buttoncomponent from "../Button";
+
 
 
 interface PopupProps {
   open: boolean;
   title?: string;
-  onOk: () => void;
-  onCancel: () => void;
   children?: React.ReactNode;
   className?:any;
   width?:number | string;
   Footer?:any;
-  
+  setOpen: (value:boolean)=>void
+  footerLeftButtonlabel?: string,
+  footerRightButtonlabel?:string
+  footerLeftButtonOnclick?: () => void,
+  footerRightButtonOnclick?:() => void
 }
 
-const Popup: React.FC<PopupProps> = ({ open, title, onOk, onCancel, children, className, width, Footer }) => {
+const Popup = ({ open, title,  children, className, width, Footer, setOpen, footerLeftButtonlabel, footerRightButtonlabel, footerLeftButtonOnclick, footerRightButtonOnclick}: PopupProps) => {
   return (
     <Modal
 
-      footer={Footer}
+      footer={Footer ? <div className="flex justify-end gap-[16px]">
+        <Buttoncomponent type="secondary" label={footerLeftButtonlabel} onClick={()=> footerLeftButtonlabel === "Cancel" ? setOpen(false) : footerLeftButtonOnclick} />
+        <Buttoncomponent type="primary" label={footerRightButtonlabel} onClick={footerRightButtonOnclick} />
+
+      </div> : false}
       title={title}
       open={open}
-      onOk={onOk}
-      onCancel={onCancel}
+      onCancel={()=>setOpen(false)}
       closable
       className={`${className} rengy-popup`}
       width={width}

@@ -23,10 +23,10 @@ const Buttoncomponent = ({
   ...rest
 }: ButtonComponentProps) => {
   const commonClass =
-    "hfour px-[20px] py-[10px] rounded-[4px] w-[125px] h-[40px] flex justify-center items-center";
+    "hfour px-[20px] py-[10px] rounded-[4px]  h-[40px] flex justify-center items-center";
 
   const typeClass =
-    type === "primary"
+    type === "secondary"
       ? "button-text-secondary border-main-primary"
       : "button-text bg-main-primary border-none";
 
@@ -37,7 +37,7 @@ const Buttoncomponent = ({
       disabled={disabled}
       className={`${commonClass} ${typeClass} ${disabled ? "disabled" : ""} ${
         block ? "block" : ""
-      } ${className || ""}`}
+      } ${className || ""} cursor-pointer`}
       {...rest}
     >
       {children || label}

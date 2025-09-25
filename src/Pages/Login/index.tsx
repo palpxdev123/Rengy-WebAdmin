@@ -28,23 +28,23 @@ const Login = () => {
   };
 
   const handleLogin = () => {
-          setAuthenticate(true),
+          // setAuthenticate(true),
+          // navigate("/dashboard");
+
+    loginApi(pageData, {
+      onSuccess: (data) => {
+        // console?.log(data?.data?.[0]?.user?.usertype, "SUCCESS");
+
+        setAuthenticate(true),
+          localStorage.setItem("accessToken", data?.data?.[0]?.accessToken),
+          localStorage.setItem("refreshToken", data?.data?.[0]?.refreshToken),
+          localStorage.setItem("userType", encryptData(`${data?.data?.[0]?.user?.usertype}`)),
           navigate("/dashboard");
-
-    // loginApi(pageData, {
-    //   onSuccess: (data) => {
-    //     // console?.log(data?.data?.[0]?.user?.usertype, "SUCCESS");
-
-    //     setAuthenticate(true),
-    //       localStorage.setItem("accessToken", data?.data?.[0]?.accessToken),
-    //       localStorage.setItem("refreshToken", data?.data?.[0]?.refreshToken),
-    //       localStorage.setItem("userType", encryptData(`${data?.data?.[0]?.user?.usertype}`)),
-    //       navigate("/dashboard");
-    //   },
-    //   onError: (data: any) => {
-    //     console?.log(data?.response?.data?.message, "error");
-    //   },
-    // });
+      },
+      onError: (data: any) => {
+        console?.log(data?.response?.data?.message, "error");
+      },
+    });
   };
   return (
     <div className="flex flex-col justify-center items-center h-[100vh]">

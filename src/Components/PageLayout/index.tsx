@@ -7,7 +7,7 @@ import ContactArea from "../../Pages/Dashboard/Components/ContactsArea";
 import { Graph, GraphDown } from "../../assets/Images";
 
 interface props {
-  title ?: String;
+  title: String;
   children?: ReactNode;
   header2?: any;
   DashboardCardvalue?: any[];
