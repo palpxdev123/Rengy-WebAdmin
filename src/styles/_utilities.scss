@@ -172,3 +172,33 @@
 .decrease-color {
   color: $decrease-color;
 }
+
+.role-loan-officer {
+  background-color: $role-loan-officer;
+}
+
+.role-vendor {
+  background-color: $role-vendor;
+}
+
+.role-admin {
+  background-color: $role-admin;
+}
+
+.role-operation-manager {
+  background-color: $role-operation-manager;
+}
+
+.status-active {
+  background-color: $status-active;
+  color: white;
+}
+
+.status-inactive {
+  background-color: $status-inactive;
+  color: white;
+}
+
+.dropdown-hover{
+  background: $Dropdown-hover;
+}

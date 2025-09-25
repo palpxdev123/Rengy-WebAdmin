@@ -1,17 +1,28 @@
 
 import { FaChartLine } from "react-icons/fa6";
-import { Dashboard } from "../../../src/Pages";
-import ApprovalManagement from "../../../src/Pages/ApprovalManagement";
+import { ApprovalManagement, Dashboard, UserManagement } from "../../../src/Pages";
 export const SidebarItems = [
   {
-    title: "Admin",
+    title: "Dashboard",
     element: <Dashboard />,
     route: "/dashboard",
     icon: <FaChartLine />
   },
   {
-    title: "Children",
+    title: "Approval Management",
     element: <ApprovalManagement />,
+    route: "/approvemanagement",
+    icon: <FaChartLine />
+  },
+  {
+    title: "User Management",
+    element: <UserManagement />,
+    route: "/usermanagement",
+    icon: <FaChartLine />
+  },
+  {
+    title: "Children",
+    element: "",
     route: "/child",
     icon: <FaChartLine />,
     children: [
