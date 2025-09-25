@@ -8,13 +8,14 @@ import"../../Components/Typo/style.scss";
 
 interface props {
   title: String,
-  header2: boolean
+  header2: boolean,
+   header3: boolean
 }
 
 const Header = ({
   title,
-  header2
-
+  header2,
+  header3
 }: props) => {
   const {setAuthenticate} = useContext(AuthContext)
   return (
@@ -40,6 +41,7 @@ const Header = ({
         <SelectComponent calender={true}  value={"Today"} options={[{label: "Today", value: "today"}]} className="h-[36px]" />
       </div>
     </header>}
+
     </>
   );
 };
