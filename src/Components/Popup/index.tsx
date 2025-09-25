@@ -1,25 +1,30 @@
 import React from "react";
 import { Modal } from "antd";
 import "./style.scss";
-import { Footer } from "antd/es/layout/layout";
-
 
 interface PopupProps {
-  open: boolean;
+  open?: boolean;
   title?: string;
-  onOk: () => void;
-  onCancel: () => void;
+  onOk?: () => void;
+  onCancel?: () => void;
   children?: React.ReactNode;
-  className?:any;
-  width?:number | string;
-  Footer?:any;
-  
+  className?: string;
+  width?: number | string;
+  Footer?: React.ReactNode;
 }
 
-const Popup: React.FC<PopupProps> = ({ open, title, onOk, onCancel, children, className, width, Footer }) => {
+const Popup: React.FC<PopupProps> = ({
+  open,
+  title,
+  onOk,
+  onCancel,
+  children,
+  className,
+  width,
+  Footer,
+}) => {
   return (
     <Modal
-
       footer={Footer}
       title={title}
       open={open}
@@ -31,7 +36,6 @@ const Popup: React.FC<PopupProps> = ({ open, title, onOk, onCancel, children, cl
     >
       {children}
     </Modal>
-    
   );
 };
 
