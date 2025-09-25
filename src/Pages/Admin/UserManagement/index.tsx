@@ -6,7 +6,7 @@ import {
   totalUser,
   Vendor,
 } from "../../../assets/Images";
-import { DropdownComponent, TableComponent } from "../../../Components";
+import { DropdownComponent, Popup, TableComponent } from "../../../Components";
 import PageLayout from "../../../Components/PageLayout";
 
 import { formatDate } from "../../../../Utils/CommonFunctions";
@@ -15,6 +15,7 @@ import { icons } from "antd/es/image/PreviewGroup";
 import { FiEdit2 } from "react-icons/fi";
 import { LuUserRoundX } from "react-icons/lu";
 import { AiOutlineDelete } from "react-icons/ai";
+import { useState } from "react";
 
 interface DataType {
   key: string;
@@ -26,6 +27,14 @@ interface DataType {
 }
 
 const UserManagement = () => {
+  const [open, setOpen] = useState(false);
+
+  const handleDropdown = (value: string) => {
+    switch (value) {
+      case "edit":
+        setOpen(true);
+    }
+  };
   const roleColor: any = {
     Admin: "role-admin ",
     Vendor: "role-vendor ",
@@ -149,11 +158,19 @@ const UserManagement = () => {
           <>
             <DropdownComponent
               options={[
-                { label: "Edit User", value: "edit", icons: <FiEdit2 />},
-                { label: "Deactivate", value: "deactivate", icons: <LuUserRoundX /> },
-                { label: "Delete User", value: "delete", icons:<AiOutlineDelete /> },
+                { label: "Edit User", value: "edit", icons: <FiEdit2 /> },
+                {
+                  label: "Deactivate",
+                  value: "deactivate",
+                  icons: <LuUserRoundX />,
+                },
+                {
+                  label: "Delete User",
+                  value: "delete",
+                  icons: <AiOutlineDelete />,
+                },
               ]}
-              onSelect={(value)=>console.log(value)}
+              onSelect={handleDropdown}
               trigger="click"
             />
           </>
@@ -197,11 +214,23 @@ const UserManagement = () => {
 
   return (
     <PageLayout
+      title={"User Management"}
       header2={false}
       DashboardCardvalue={DashboardCardvalue}
       ContactData={ContactData}
     >
       <TableComponent dataSource={dataSource} columns={columns} header={true} />
+      <Popup
+        title="Update User Information & Persmission"
+        open={open}
+        setOpen={setOpen}
+        Footer={true}
+        footerLeftButtonlabel="Cancel"
+        footerRightButtonlabel="Update User"
+        footerRightButtonOnclick={()=>alert("User Updated")}
+      >
+        
+      </Popup>
     </PageLayout>
   );
 };

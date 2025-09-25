@@ -1,6 +1,6 @@
 import React, { useState } from "react"; // ✅ import useState
-import "../../styles/_utilities.scss";
-import "../../Components/Typo/style.scss";
+import '../../../styles/_utilities.scss'
+import "../../../Components/Typo/style.scss";
 import Input from "../../../Components/Input";
 // import { SelectComponent } from "../../Components";
 import PageLayout from "../../../Components/PageLayout";
@@ -46,7 +46,7 @@ const ApprovalManagement = () => {
   };
 
   return (
-    <PageLayout header3={true}>
+    <PageLayout header3={true} title={"Approval Management"}>
       <div className="bg-main-secondary">
         <div className="flex justify-between w-full px-[20px] py-[12px] header-border-bottom">
           <Input
@@ -81,11 +81,13 @@ const ApprovalManagement = () => {
       <div >
         <Popup
           open={isOpen}
-          onOk={handleOk}
-          onCancel={handleCancel}
+          setOpen={setIsOpen}
+          // onOk={handleOk}
+          // onCancel={handleCancel}
+
           className="p-0"
           width="585px"
-          Footer={<div><Buttoncomponent label="hii"/></div>}
+          // Footer={<div><Buttoncomponent label="hii"/></div>}
         >
           <div>
           <h1 className="hseven text-secondary mb-[16px]">

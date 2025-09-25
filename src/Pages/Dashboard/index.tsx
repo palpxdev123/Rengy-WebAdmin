@@ -91,7 +91,7 @@ const Dashboard = () => {
 
   return (
     <PageLayout
-      title={"tatat"}
+      title={"Dashboard"}
       header2={true}
       DashboardCardvalue={DashboardCardvalue}
       ContactData={ContactData}
