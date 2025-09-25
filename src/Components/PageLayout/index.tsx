@@ -7,11 +7,12 @@ import ContactArea from "../../Pages/Dashboard/Components/ContactsArea";
 import { Graph, GraphDown } from "../../assets/Images";
 
 interface props {
-  title?: String;
+  title ?: String;
   children?: ReactNode;
   header2?: any;
   DashboardCardvalue?: any[];
-  ContactData?:any[]
+  ContactData?:any[];
+   header3?: any;
 }
 
 const PageLayout = ({
@@ -19,12 +20,13 @@ const PageLayout = ({
   children,
   header2,
   DashboardCardvalue,
-  ContactData
+  ContactData,
+  header3
 }: props) => {
 
   return (
     <div>
-      <Header title={title} header2={header2} />
+      <Header title={title} header2={header2} header3={header3}/>
 
       <div
         className={`p-[24px] ${

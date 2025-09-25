@@ -11,6 +11,7 @@ import "./style.scss";
 import { Profile } from "../../assets/Images";
 import ContactArea from "./Components/ContactsArea";
 import StagewiseProject from "./Components/DashboardTabSection";
+
 const Dashboard = () => {
   const dashboardData = {
     data: [
@@ -40,70 +41,15 @@ const Dashboard = () => {
     { label: "This Week", value: "week" },
   ];
 
-  const requestData = {
-    title: "Discount Approval",
-    description: "Requesting discount to close sale (after SO is created)",
-    projectId: "#PRJ-1230",
-    status: "Pending" as const,
-    vendor: "ABC Solr Pvt. Ltd.",
-    amount: "₹15,000",
-    date: "13 Jan 2025",
-    flow: "Operation Head → MD",
-  };
-
   const DashboardCardvalue = [
-    {
-      value: "2.4M",
-      percentage: 12.5,
-      label: "Revenue",
-    },
-    {
-      value: 2847,
-      percentage: 12.5,
-      label: "Total Active Users",
-    },
-    {
-      value: 156,
-      percentage: 12.5,
-      label: "Total Loan Requests",
-    },
-    {
-      value: 89,
-      percentage: 12.5,
-      label: "Active Projects",
-    },
-    {
-      value: 23,
-      percentage: -8.2,
-      label: "Pending Approvals",
-    },
+    { value: "2.4M", percentage: 12.5, label: "Revenue" },
+    { value: 2847, percentage: 12.5, label: "Total Active Users" },
+    { value: 156, percentage: 12.5, label: "Total Loan Requests" },
+    { value: 89, percentage: 12.5, label: "Active Projects" },
+    { value: 23, percentage: -8.2, label: "Pending Approvals" },
   ];
 
   const ContactData = [
-    {
-      profile_pic: Profile,
-      profile_name: "Nagraj",
-      phone_number: "+91 9980556655",
-      email: "savannah@gmail.com",
-    },
-    {
-      profile_pic: Profile,
-      profile_name: "Nagraj",
-      phone_number: "+91 9980556655",
-      email: "savannah@gmail.com",
-    },
-    {
-      profile_pic: Profile,
-      profile_name: "Nagraj",
-      phone_number: "+91 9980556655",
-      email: "savannah@gmail.com",
-    },
-    {
-      profile_pic: Profile,
-      profile_name: "Nagraj",
-      phone_number: "+91 9980556655",
-      email: "savannah@gmail.com",
-    },
     {
       profile_pic: Profile,
       profile_name: "Nagraj",
@@ -128,38 +74,21 @@ const Dashboard = () => {
       expected_delivery_by: "12 Aug 2025",
       requested_by: "Rajesh K",
     },
+  ];
+
+  const requests = [
     {
-      project_name: "Solar panel Installation",
-      Request_Id: "#REQ-123",
-      stage: "DPR Preparation stage",
-      expected_delivery_by: "12 Aug 2025",
-      requested_by: "Rajesh K",
-    },
-    {
-      project_name: "Solar panel Installation",
-      Request_Id: "#REQ-123",
-      stage: "DPR Preparation stage",
-      expected_delivery_by: "12 Aug 2025",
-      requested_by: "Rajesh K",
-    },
-    {
-      project_name: "Solar panel Installation",
-      Request_Id: "#REQ-123",
-      stage: "DPR Preparation stage",
-      expected_delivery_by: "12 Aug 2025",
-      requested_by: "Rajesh K",
+      title: "Office Supplies Purchase",
+      description: "Request for stationery items",
+      projectId: "PRJ-101",
+      status: "Pending" as const,
+      vendor: "ABC Stationery",
+      amount: "₹12,500",
+      date: "2025-09-20",
+      flow: "Manager → Finance → Admin",
     },
   ];
-  const sampleRequest = {
-    title: "Discount Approval",
-    description: "Requesting discount to close sale (after SO is created)",
-    projectId: "PRJ-1230",
-    status: "Pending" as const,
-    vendor: "ABC Solr Pvt. Ltd.",
-    amount: "$15,000",
-    date: "13 Jan 2025",
-    flow: "  Operation Head→ MD ",
-  };
+
   return (
     <PageLayout
       title={"tatat"}
@@ -167,36 +96,38 @@ const Dashboard = () => {
       DashboardCardvalue={DashboardCardvalue}
       ContactData={ContactData}
     >
-      <div className=" flex justify-between gap-[24px]">
+      <div className="flex justify-between gap-[24px]">
         <BookingChart
           dashboardData={dashboardData}
           optionsSelect={optionsSelect}
         />
         <ConatctDashboardCard />
       </div>
+
       <div className="flex justify-between py-[24px]">
         <div className="w-[100%]">
           <div className="rounded-[4px] w-full bg-white">
             <div className="p-[20px] h-[65px] flex justify-between border-b-[1px] border-header items-center">
               <div className="flex">
-                <p className=" pr-[8px]">Daily Vendor Flow</p>
+                <p className="pr-[8px]">Daily Vendor Flow</p>
               </div>
               <SelectComponent
                 value={"week"}
                 options={[{ label: "This week", value: "week" }]}
               />
             </div>
-            <div className=" p-[20px]">
+            <div className="p-[20px]">
               <LineChart />
             </div>
           </div>
+
           <StagewiseProject tabs={tabs} Stagewiseproject={Stagewiseproject} />
           <ProgressBar />
-          <RequestsApprovalCard request={sampleRequest} showAltHeader showActions/>
-          <RequestsApprovalCard request={sampleRequest} />
+
+          <RequestsApprovalCard request={requests[0]} />
         </div>
 
-        <div>{/* <ContactArea ContactData={ContactData} /> */}</div>
+        <div></div>
       </div>
     </PageLayout>
   );
