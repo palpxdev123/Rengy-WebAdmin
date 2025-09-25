@@ -1,12 +1,13 @@
 import React, { useState } from "react"; // ✅ import useState
 import "../../styles/_utilities.scss";
 import "../../Components/Typo/style.scss";
-import Input from "../../Components/Input";
-import { SelectComponent } from "../../Components";
-import PageLayout from "../../Components/PageLayout";
-import RequestsApprovalCard from "../../Components/RequestsApproval";
-import Buttoncomponent from "../../Components/Button";
-import Popup from "../../Components/Popup"; // ✅ import your reusable Popup
+import Input from "../../../Components/Input";
+// import { SelectComponent } from "../../Components";
+import PageLayout from "../../../Components/PageLayout";
+import RequestsApprovalCard from "../../../Components/RequestsApproval";
+import Buttoncomponent from "../../../Components/Button";
+// import Popup from "../../"; // ✅ import your reusable Popup
+import { SelectComponent, Popup} from "../../../Components";
 
 const ApprovalManagement = () => {
   const requests = [

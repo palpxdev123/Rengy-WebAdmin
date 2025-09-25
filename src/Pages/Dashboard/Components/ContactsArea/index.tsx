@@ -2,7 +2,7 @@ import { ContactCard } from "../../../../Components";
 import { memo } from "react";
 
 interface Props {
-  ContactData: any[];
+  ContactData?: any[];
 }
 
 const ContactArea = ({ ContactData }: Props) => {
