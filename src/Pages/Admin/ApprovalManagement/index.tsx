@@ -51,15 +51,14 @@ const ApprovalManagement = () => {
         <div className="flex justify-between w-full px-[20px] py-[12px] header-border-bottom">
           <Input
             search
-            style={{
-              width: "250px",
-              height: "36px",
-              padding: "8px 0px 8px 0px",
-            }}
+            
             placeholder="Search requests"
-            className="text-seven"
+            inputClass="text-seven"
           />
           <SelectComponent
+          name="approve"
+          onChange={(name, value)=>console.log(name, value)
+          }
             placeholder="All Status"
             className="text-two select-text"
           />
@@ -119,7 +118,7 @@ const ApprovalManagement = () => {
           </div>
           <div className="mb-[16px]">
             <p>Comments</p>
-            <Input placeholderSymbol className="h-[90px]"/>
+            <Input inputClass="h-[90px]" />
           </div>
           </div>
         </Popup>

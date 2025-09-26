@@ -33,7 +33,7 @@ const Popup = ({ open, title,  children, className, width, Footer, setOpen, foot
       onCancel={()=>setOpen(false)}
       closable
       className={`${className} rengy-popup`}
-      width={width}
+      width={width || "max-content"}
     >
       {children}
     </Modal>

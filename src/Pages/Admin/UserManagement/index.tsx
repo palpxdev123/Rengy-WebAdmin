@@ -1,4 +1,3 @@
-import { Tag } from "antd";
 import {
   ActiveUser,
   Loan,
@@ -6,12 +5,15 @@ import {
   totalUser,
   Vendor,
 } from "../../../assets/Images";
-import { DropdownComponent, Popup, TableComponent } from "../../../Components";
+import {
+  DropdownComponent,
+  Input,
+  Popup,
+  SelectComponent,
+  TableComponent,
+} from "../../../Components";
 import PageLayout from "../../../Components/PageLayout";
-
 import { formatDate } from "../../../../Utils/CommonFunctions";
-import { HiDotsHorizontal } from "react-icons/hi";
-import { icons } from "antd/es/image/PreviewGroup";
 import { FiEdit2 } from "react-icons/fi";
 import { LuUserRoundX } from "react-icons/lu";
 import { AiOutlineDelete } from "react-icons/ai";
@@ -227,9 +229,43 @@ const UserManagement = () => {
         Footer={true}
         footerLeftButtonlabel="Cancel"
         footerRightButtonlabel="Update User"
-        footerRightButtonOnclick={()=>alert("User Updated")}
+        footerRightButtonOnclick={() => alert("User Updated")}
+        className="w-max"
       >
-        
+        <div className="grid grid-cols-2 gap-[16px]">
+          <Input
+            label="Full Name"
+            name="full_name"
+            onChange={() => ""}
+            value="ramakrishnan"
+            mandatory={true}
+            error="full name is required"
+            inputClass="w-[282px]"
+          />
+          <Input
+            label="Email Address"
+            name="email"
+            onChange={() => ""}
+            value="abc@example.com"
+            mandatory={true}
+            inputClass="w-[282px]"
+            // error="full name is required"
+          />
+          <SelectComponent
+            label="Email Address"
+            name="email"
+            onChange={(name, value) => console.log(name, value)}
+            // value="abc@example.com"
+            mandatory={true}
+            selectClass="w-[282px] "
+            placeholder="Please select"
+            options={[
+              { label: "John Doe", value: "john" },
+              { label: "Jane Smith", value: "jane" },
+              { label: "Michael Lee", value: "michael" },
+            ]}
+          />
+        </div>
       </Popup>
     </PageLayout>
   );
