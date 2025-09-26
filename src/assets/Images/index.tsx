@@ -8,6 +8,11 @@ import totalUser from "../Images/totalUser.svg"
 import ActiveUser from '../Images/ActiveUser.svg'
 import Loan from '../Images/loan.svg'
 import Vendor from '../Images/vendor.svg'
+import Contactsicon from "../Images/Contacts.svg"
+import Helpicon from "../Images/Help.svg"
+import Reporticon from "./Report.svg"
+import ApprovalManagementicon from "./ApprovalManagement.svg"
+import Dashboardicon from "./Dashboard.svg"
 
 
 
@@ -23,5 +28,10 @@ export {
     totalUser,
     ActiveUser,
     Loan,
-    Vendor
+    Vendor,
+    Contactsicon,
+    Helpicon,
+    Reporticon,
+    ApprovalManagementicon,
+    Dashboardicon
 }
