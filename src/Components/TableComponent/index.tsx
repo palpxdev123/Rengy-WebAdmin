@@ -19,7 +19,7 @@ const TableComponent = ({dataSource, columns, header}: props) => {
                 <SelectComponent options={[{label:"All Status", value: "all_status"}]} value={"all_status"} />
             </article>
         </div>}
-        <Table dataSource={dataSource} columns={columns} />
+        <Table dataSource={dataSource} columns={columns} className="rengy-app" />
     </div>
   );
 };

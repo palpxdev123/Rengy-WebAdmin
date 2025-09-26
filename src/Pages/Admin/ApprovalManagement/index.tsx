@@ -1,17 +1,16 @@
-import React, { useState } from "react"; // ✅ import useState
-import '../../../styles/_utilities.scss'
+import "../../../styles/index.scss";
 import "../../../Components/Typo/style.scss";
 import Input from "../../../Components/Input";
-// import { SelectComponent } from "../../Components";
 import PageLayout from "../../../Components/PageLayout";
 import RequestsApprovalCard from "../../../Components/RequestsApproval";
-import Buttoncomponent from "../../../Components/Button";
-// import Popup from "../../"; // ✅ import your reusable Popup
-import { SelectComponent, Popup} from "../../../Components";
+import { SelectComponent, Popup } from "../../../Components";
+import TextArea from "antd/es/input/TextArea";
+import { useState } from "react";
 
 const ApprovalManagement = () => {
   const requests = [
     {
+      requestId: "APR-101",
       title: "Office Supplies Purchase",
       description: "Request for stationery items",
       projectId: "PRJ-101",
@@ -20,8 +19,11 @@ const ApprovalManagement = () => {
       amount: "₹12,500",
       date: "2025-09-20",
       flow: "Manager → Finance → Admin",
+      role: "Vendor",
+      reason: "Monthly office needs",
     },
     {
+      requestId: "APR-102",
       title: "Laptop Procurement",
       description: "Approval for 5 MacBooks",
       projectId: "PRJ-102",
@@ -30,19 +32,17 @@ const ApprovalManagement = () => {
       amount: "₹4,50,000",
       date: "2025-09-18",
       flow: "IT Head → Finance → Admin",
+      role: "IT Procurement",
+      reason: "New hires require laptops",
     },
   ];
 
   const [isOpen, setIsOpen] = useState(false);
+  const [selectedRequest, setSelectedRequest] = useState<any>(null);
 
-  const handleOpen = () => setIsOpen(true);
-  const handleOk = () => {
-    console.log("✅ Ok clicked");
-    setIsOpen(false);
-  };
-  const handleCancel = () => {
-    console.log("❌ Cancel clicked");
-    setIsOpen(false);
+  const handleOpen = (request: any) => {
+    setSelectedRequest(request);
+    setIsOpen(true);
   };
 
   return (
@@ -72,58 +72,71 @@ const ApprovalManagement = () => {
               request={request}
               showHeader={false}
               className="mb-[16px] progress-bg"
-              onClick={handleOpen}
+              onClick={() => handleOpen(request)}
             />
           ))}
         </div>
       </div>
 
-      <div >
-        <Popup
-          open={isOpen}
-          setOpen={setIsOpen}
-          // onOk={handleOk}
-          // onCancel={handleCancel}
-
-          className="p-0"
-          width="585px"
-          // Footer={<div><Buttoncomponent label="hii"/></div>}
-        >
+      {/* ✅ Popup for selected request */}
+      <Popup
+        open={isOpen}
+        className="p-0"
+        width="585px"
+        setOpen={setIsOpen}
+        footerLeftButtonlabel="Reject"
+        footerRightButtonlabel="Approve"
+        footerRightButtonOnclick={() => alert("User Updated")}
+        Footer={true}
+      >
+        {selectedRequest && (
           <div>
-          <h1 className="hseven text-secondary mb-[16px]">
-            Approval Request Details - #APR-12344
-          </h1>
-          <div className="flex justify-between mb-[12px]">
-            <p>Request Type</p>
-            <p>Discount Approval</p>
+            <div className="border-bottom-second mb-[16px]">
+              <h1 className="hseven text-secondary mb-[16px]">
+                Approval Request Details - #{selectedRequest.requestId}
+              </h1>
+
+              {[
+                { label: "Request Type", value: selectedRequest.title },
+                { label: "Request By", value: selectedRequest.vendor },
+                { label: "Amount", value: selectedRequest.amount },
+                { label: "Role", value: selectedRequest.role },
+              ].map((item, index) => (
+                <div className="flex justify-between mb-[12px]" key={index}>
+                  <p className="text-four text-light-secondary">{item.label}</p>
+                  <p className="hfive text-secondary">{item.value}</p>
+                </div>
+              ))}
+
+              <div className="mb-[12px]">
+                <p className="mb-[4px] text-four text-light-secondary">
+                  Description
+                </p>
+                <p className="hfive text-secondary">
+                  {selectedRequest.description}
+                </p>
+              </div>
+
+              <div className="mb-[16px]">
+                <p className="mb-[4px] text-four text-light-secondary">
+                  Reason
+                </p>
+                <p className="hfive text-secondary">{selectedRequest.reason}</p>
+              </div>
+            </div>
+
+            <div className="mb-[16px]">
+              <p className="mb-[6px] text-four text-light-secondary">
+                Comments
+              </p>
+              <TextArea
+                className="!h-[90px] textarea-text text-eight textarea-border !px-[12px] !py-[13px]"
+                placeholder="Add comments (optional)"
+              />
+            </div>
           </div>
-          <div className="flex justify-between mb-[12px]">
-            <p>Request By</p>
-            <p>ABC Solar Pvt. Ltd</p>
-          </div>
-          <div className="flex justify-between mb-[12px]">
-            <p>Amount</p>
-            <p>₹15,000</p>
-          </div>
-          <div className="flex justify-between mb-[12px]">
-            <p>Role</p>
-            <p>Vendor</p>
-          </div>
-          <div className="mb-[12px]">
-            <p>Description</p>
-            <p>Requesting discount to close sale (after SO is created)</p>
-          </div>
-          <div className="mb-[16px]">
-            <p>Reason</p>
-            <p>Customer negotiation required for project closure</p>
-          </div>
-          <div className="mb-[16px]">
-            <p>Comments</p>
-            <Input placeholderSymbol className="h-[90px]"/>
-          </div>
-          </div>
-        </Popup>
-      </div>
+        )}
+      </Popup>
     </PageLayout>
   );
 };

@@ -22,9 +22,11 @@ interface RequestsApprovalCardProps {
   showActions?: boolean; 
   className?: string;    
   onClick?:any;
+  data?:any;
 }
 
 const RequestsApprovalCard = ({
+  data,
   request,
   onClick,
   showHeader = true,
