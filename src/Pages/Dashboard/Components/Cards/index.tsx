@@ -42,7 +42,7 @@ const FlatCard: React.FC<FlatCardProps> = ({
         {percentage && (
           <p
             className={`text-one ${
-              isPositive ? "increase-color" : "decrease-color"
+              isPositive ? "view-green" : "decrease-color"
             }`}
           >
             {isPositive ? `+${percentage}%` : `${percentage}%`}

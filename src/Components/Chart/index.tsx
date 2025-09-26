@@ -86,10 +86,14 @@ const BookingChart: React.FC<BookingChartProps> = ({
 
         {/* ✅ Custom SelectComponent */}
         <SelectComponent
+        size="small"
           value={selectedOption}
-          onChange={(value: string) => setSelectedOption(value)}
-          options={optionsSelect}
+          // options={optionsSelect}
           placeholder="This week"
+           onChange={()=>""}
+              name="week"
+                // value={"week"}
+                options={[{ label: "This week", value: "week" }]}
         />
       </article>
 

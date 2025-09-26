@@ -1,87 +1,68 @@
-import React from "react";
 import { CiSearch } from "react-icons/ci";
+import "../../Components/Typo/style.scss";
 import "../../styles/_utilities.scss";
 
-interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
-  label?: string;
+interface props {
   name?: string;
-  value?: string | number;
-  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  error?: string;
-  touched?: boolean;
-  search?: boolean; // show search icon
-  placeholderSymbol?: boolean; // show currency icon
+  value?: string;
+  onChange?: (value:any) => void;
+  placeholder?: string;
+  type?: string;
+  disabled?: boolean;
+  label?: string;
+  error?: any;
+  mandatory?: boolean;
+  inputClass?: string;
+  size?: string;
+  height?: string;
+  search?: boolean
 }
 
-const Input: React.FC<InputProps> = ({
-  label,
-  size,
-  type = "text",
+const Input = ({
   name,
   value,
   onChange,
-  placeholder,
-  required = false,
-  error,
-  touched,
+  placeholder = "Enter",
+  type = "text",
   disabled = false,
-  className = "",
-  search,
-  placeholderSymbol,
-  max,
-  ...props
-}) => {
+  label,
+  error,
+  mandatory = false,
+  inputClass,
+  size,
+  height,
+  search
+}: props) => {
   return (
-    <div
-      className={` 
-            ${placeholderSymbol ? "h-[75px]" : ""} 
-
-          `}
-    >
+    <div className="flex flex-col">
       {label && (
-        <label htmlFor={name} className="small-text ">
+        <div className="mb-[6px] text-two text-secondary">
           {label}
-        </label>
+          {mandatory && <span className="decrease-color">*</span>}
+        </div>
       )}
-
-      <div className="input-container relative">
-        {search && (
-          <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500 ">
-            <CiSearch size={size} className="search-icon" />
-          </span>
-        )}
-
-        {placeholderSymbol && (
-          <span className="absolute left-3 top-1/2 -translate-y-1/2"></span>
-        )}
-
+      <div className="relative flex items-center">
+        {search && <CiSearch size={20} className="absolute flex items-center ml-[12px] search-icon" />}
         <input
-          type={type}
-          max={max}
-          id={name}
+          className={`${inputClass} ${
+            size === "small" && "!h-[36px] !rounded-[4px]"
+          } rounded-[8px] border ${search ? "indent-[40px]" : "indent-[12px]"} ${
+            error ? "error-input-border" : "input-border"
+          }  text-six outline-0 text-secondary`}
           name={name}
           value={value}
           onChange={onChange}
           placeholder={placeholder}
-          required={required}
+          type={type}
           disabled={disabled}
-          className={`input-border rounded-[4px] w-[526px]
-            ${error && touched ? "error" : ""} 
-            ${search ? "py-[6px]  pl-[12px] indent-[30px]" : ""} 
-            ${placeholderSymbol ? "py-[13px]  pl-[12px] rounded-[8px]" : ""} 
-            ${className}
-          `}
-          {...props}
+          style={{
+            height: height || "48px",
+          }}
         />
       </div>
-
-      {error && touched && <div className="error-message">{error}</div>}
+      <div className="decrease-color">{error && error}</div>
     </div>
   );
 };
 
 export default Input;
-
-
-
-

@@ -1,9 +1,7 @@
-import Header from "./Header";
 import Sidebar from "./Sidebar";
 import "../styles/_utilities.scss";
 import { Outlet } from "react-router-dom";
 import { useState } from "react";
-import { Notification } from "../Components";
 
 const Layout = () => {
   const [toggle, setToggle] = useState([]);

@@ -54,7 +54,11 @@ const RequestsApprovalCard = ({
             <h1 className="hfour text-secondary">Approval Requests</h1>
             <p className="sidehtwo view-text">View all</p>
           </div>
-          <SelectComponent placeholder="This week" />
+          <SelectComponent  onChange={()=>""}
+              name="week"
+              size="small"
+                value={"week"}
+                options={[{ label: "This week", value: "week" }]} placeholder="This week" />
         </div>
       )}
 
