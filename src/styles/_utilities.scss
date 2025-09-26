@@ -153,6 +153,10 @@
   color: $white;
 }
 
+.textarea-text {
+  color: $textarea-text;
+}
+
 .button-text {
   color: $button-text;
 }
@@ -195,7 +199,7 @@
   color: white;
 }
 
-.dropdown-hover{
+.dropdown-hover {
   background: $Dropdown-hover;
 }
 
@@ -213,3 +217,6 @@
 }
 
 
+.textarea-border{
+  border: 1px solid $textarea-border;
+}

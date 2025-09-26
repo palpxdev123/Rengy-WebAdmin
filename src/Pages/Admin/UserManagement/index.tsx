@@ -106,6 +106,7 @@ const UserManagement = () => {
       title: "User",
       dataIndex: "user",
       key: "user",
+      className: "text-two",
     },
     {
       title: "Role",
@@ -116,7 +117,7 @@ const UserManagement = () => {
           <div
             className={`${
               roleColor[record?.role]
-            } flex justify-center items-center rounded-[40px] py-[4px] px-[8px] w-max`}
+            } flex justify-center items-center rounded-[40px] py-[4px] px-[8px] w-max text-five`}
           >
             {record?.role}
           </div>
@@ -127,6 +128,7 @@ const UserManagement = () => {
       title: "Department",
       dataIndex: "department",
       key: "department",
+      className: "text-two",
     },
     {
       title: "Status",
@@ -137,7 +139,7 @@ const UserManagement = () => {
           <div
             className={`${
               record?.status === "Active" ? "status-active" : "status-inactive"
-            } flex justify-center items-center rounded-[40px] py-[4px] px-[8px] w-max`}
+            } flex justify-center items-center rounded-[40px] py-[4px] px-[8px] w-max text-five`}
           >
             {record?.status}
           </div>
@@ -147,6 +149,7 @@ const UserManagement = () => {
     {
       title: "Last Login",
       dataIndex: "lastLogin",
+      className: "text-two",
       key: "lastLogin",
       render: (record: any) => formatDate(record?.lastLogin),
     },

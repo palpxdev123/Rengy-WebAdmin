@@ -39,9 +39,14 @@
   font-weight: 500;
   line-height: 120%;
 }
+@mixin height() {
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 140%;
+}
 @mixin text-one() {
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 500 !important;
   line-height: 20px;
 }
 @mixin text-two() {
@@ -69,6 +74,11 @@
   line-height: 140%;
 }
 @mixin text-seven() {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+}
+@mixin text-eight() {
   font-size: 12px;
   font-weight: 400;
   line-height: 16px;
