@@ -5,12 +5,12 @@ import "../../styles/_utilities.scss";
 interface props {
   name?: string;
   value?: string;
-  onChange?: () => void;
+  onChange?: (value:any) => void;
   placeholder?: string;
   type?: string;
   disabled?: boolean;
   label?: string;
-  error?: string;
+  error?: any;
   mandatory?: boolean;
   inputClass?: string;
   size?: string;

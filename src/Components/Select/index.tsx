@@ -14,7 +14,7 @@ interface SelectComponentProps {
   label?: string;
   placeholder?: string;
   className?: string;
-  value?: string | number | undefined;
+  value?: string | number | null;
   onChange: (name: string, value?: any) => void;
   options?: OptionType[];
   disabled?: boolean;

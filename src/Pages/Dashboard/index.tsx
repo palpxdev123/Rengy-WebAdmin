@@ -112,6 +112,9 @@ const Dashboard = () => {
                 <p className="pr-[8px]">Daily Vendor Flow</p>
               </div>
               <SelectComponent
+              onChange={()=>""}
+              name="week"
+              size="small"
                 value={"week"}
                 options={[{ label: "This week", value: "week" }]}
               />
