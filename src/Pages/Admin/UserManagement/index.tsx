@@ -6,8 +6,10 @@ import {
   totalUser,
   Vendor,
 } from "../../../assets/Images";
-import { DropdownComponent, TableComponent } from "../../../Components";
+import { DropdownComponent, Popup, TableComponent } from "../../../Components";
 import PageLayout from "../../../Components/PageLayout";
+import "./style.scss";
+import "../../../Components/Typo/style.scss"
 
 import { formatDate } from "../../../../Utils/CommonFunctions";
 import { HiDotsHorizontal } from "react-icons/hi";
@@ -15,6 +17,7 @@ import { icons } from "antd/es/image/PreviewGroup";
 import { FiEdit2 } from "react-icons/fi";
 import { LuUserRoundX } from "react-icons/lu";
 import { AiOutlineDelete } from "react-icons/ai";
+import { useState } from "react";
 
 interface DataType {
   key: string;
@@ -26,6 +29,14 @@ interface DataType {
 }
 
 const UserManagement = () => {
+  const [open, setOpen] = useState(false);
+
+  const handleDropdown = (value: string) => {
+    switch (value) {
+      case "edit":
+        setOpen(true);
+    }
+  };
   const roleColor: any = {
     Admin: "role-admin ",
     Vendor: "role-vendor ",
@@ -95,6 +106,7 @@ const UserManagement = () => {
       title: "User",
       dataIndex: "user",
       key: "user",
+      className: "text-two",
     },
     {
       title: "Role",
@@ -105,7 +117,7 @@ const UserManagement = () => {
           <div
             className={`${
               roleColor[record?.role]
-            } flex justify-center items-center rounded-[40px] py-[4px] px-[8px] w-max`}
+            } flex justify-center items-center rounded-[40px] py-[4px] px-[8px] w-max text-five`}
           >
             {record?.role}
           </div>
@@ -116,6 +128,7 @@ const UserManagement = () => {
       title: "Department",
       dataIndex: "department",
       key: "department",
+      className: "text-two",
     },
     {
       title: "Status",
@@ -126,7 +139,7 @@ const UserManagement = () => {
           <div
             className={`${
               record?.status === "Active" ? "status-active" : "status-inactive"
-            } flex justify-center items-center rounded-[40px] py-[4px] px-[8px] w-max`}
+            } flex justify-center items-center rounded-[40px] py-[4px] px-[8px] w-max text-five`}
           >
             {record?.status}
           </div>
@@ -136,6 +149,7 @@ const UserManagement = () => {
     {
       title: "Last Login",
       dataIndex: "lastLogin",
+      className: "text-two",
       key: "lastLogin",
       render: (record: any) => formatDate(record?.lastLogin),
     },
@@ -149,11 +163,19 @@ const UserManagement = () => {
           <>
             <DropdownComponent
               options={[
-                { label: "Edit User", value: "edit", icons: <FiEdit2 />},
-                { label: "Deactivate", value: "deactivate", icons: <LuUserRoundX /> },
-                { label: "Delete User", value: "delete", icons:<AiOutlineDelete /> },
+                { label: "Edit User", value: "edit", icons: <FiEdit2 /> },
+                {
+                  label: "Deactivate",
+                  value: "deactivate",
+                  icons: <LuUserRoundX />,
+                },
+                {
+                  label: "Delete User",
+                  value: "delete",
+                  icons: <AiOutlineDelete />,
+                },
               ]}
-              onSelect={(value)=>console.log(value)}
+              onSelect={handleDropdown}
               trigger="click"
             />
           </>
@@ -197,11 +219,23 @@ const UserManagement = () => {
 
   return (
     <PageLayout
+      title={"User Management"}
       header2={false}
       DashboardCardvalue={DashboardCardvalue}
       ContactData={ContactData}
     >
       <TableComponent dataSource={dataSource} columns={columns} header={true} />
+      <Popup
+        title="Update User Information & Persmission"
+        open={open}
+        setOpen={setOpen}
+        Footer={true}
+        footerLeftButtonlabel="Cancel"
+        footerRightButtonlabel="Update User"
+        footerRightButtonOnclick={()=>alert("User Updated")}
+      >
+        
+      </Popup>
     </PageLayout>
   );
 };

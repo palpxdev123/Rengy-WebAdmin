@@ -1,12 +1,11 @@
-import React, { useState } from "react";
 import "../../../styles/index.scss";
 import "../../../Components/Typo/style.scss";
 import Input from "../../../Components/Input";
 import PageLayout from "../../../Components/PageLayout";
 import RequestsApprovalCard from "../../../Components/RequestsApproval";
-import Buttoncomponent from "../../../Components/Button";
 import { SelectComponent, Popup } from "../../../Components";
 import TextArea from "antd/es/input/TextArea";
+import { useState } from "react";
 
 const ApprovalManagement = () => {
   const requests = [
@@ -46,11 +45,8 @@ const ApprovalManagement = () => {
     setIsOpen(true);
   };
 
-  const handleOk = () => setIsOpen(false);
-  const handleCancel = () => setIsOpen(false);
-
   return (
-    <PageLayout header3={true}>
+    <PageLayout header3={true} title={"Approval Management"}>
       <div className="bg-main-secondary">
         <div className="flex justify-between w-full px-[20px] py-[12px] header-border-bottom">
           <Input
@@ -87,11 +83,11 @@ const ApprovalManagement = () => {
         open={isOpen}
         className="p-0"
         width="585px"
-        onOk={handleOk}
-        onCancel={handleCancel}
-        Footer={
-          false
-        }
+        setOpen={setIsOpen}
+        footerLeftButtonlabel="Reject"
+        footerRightButtonlabel="Approve"
+        footerRightButtonOnclick={() => alert("User Updated")}
+        Footer={true}
       >
         {selectedRequest && (
           <div>
@@ -136,13 +132,8 @@ const ApprovalManagement = () => {
               <TextArea
                 className="!h-[90px] textarea-text text-eight textarea-border !px-[12px] !py-[13px]"
                 placeholder="Add comments (optional)"
-
               />
             </div>
-            <div className="flex gap-[16px] justify-end">
-            <Buttoncomponent label="Reject" />
-            <Buttoncomponent type="secondary" label="Approve" />
-          </div>
           </div>
         )}
       </Popup>
