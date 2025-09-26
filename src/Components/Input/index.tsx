@@ -15,6 +15,7 @@ interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
 
 const Input: React.FC<InputProps> = ({
   label,
+  size,
   type = "text",
   name,
   value,
@@ -46,7 +47,7 @@ const Input: React.FC<InputProps> = ({
       <div className="input-container relative">
         {search && (
           <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500 ">
-            <CiSearch size={20} className="search-icon" />
+            <CiSearch size={size} className="search-icon" />
           </span>
         )}
 
@@ -66,7 +67,7 @@ const Input: React.FC<InputProps> = ({
           disabled={disabled}
           className={`input-border rounded-[4px] w-[526px]
             ${error && touched ? "error" : ""} 
-            ${search ? "py-[6px] pr-[171px]  pl-[12px] indent-[30px]" : ""} 
+            ${search ? "py-[6px]  pl-[12px] indent-[30px]" : ""} 
             ${placeholderSymbol ? "py-[13px]  pl-[12px] rounded-[8px]" : ""} 
             ${className}
           `}
@@ -80,3 +81,7 @@ const Input: React.FC<InputProps> = ({
 };
 
 export default Input;
+
+
+
+

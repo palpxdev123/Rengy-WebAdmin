@@ -1,5 +1,6 @@
 import CryptoJS from "crypto-js";
 
+import dayjs from "dayjs";
 const SECRET_KEY = "my-secret-key";
 
 // Generate random 16-character salt
@@ -28,4 +29,8 @@ export const decryptData = (cipherText: string) => {
     }else{
         return null
     }
+};
+
+export const formatDate = (dateString: string) => {
+  return dayjs(dateString).format("DD MMM YYYY");
 };
