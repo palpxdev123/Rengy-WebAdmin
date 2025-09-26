@@ -1,4 +1,3 @@
-import { Tag } from "antd";
 import {
   ActiveUser,
   Loan,
@@ -6,18 +5,22 @@ import {
   totalUser,
   Vendor,
 } from "../../../assets/Images";
-import { DropdownComponent, Popup, TableComponent } from "../../../Components";
+import {
+  Buttoncomponent,
+  DropdownComponent,
+  Input,
+  Popup,
+  SelectComponent,
+  TableComponent,
+} from "../../../Components";
 import PageLayout from "../../../Components/PageLayout";
-import "./style.scss";
-import "../../../Components/Typo/style.scss"
-
 import { formatDate } from "../../../../Utils/CommonFunctions";
-import { HiDotsHorizontal } from "react-icons/hi";
-import { icons } from "antd/es/image/PreviewGroup";
 import { FiEdit2 } from "react-icons/fi";
 import { LuUserRoundX } from "react-icons/lu";
 import { AiOutlineDelete } from "react-icons/ai";
 import { useState } from "react";
+import { useFormik } from "formik";
+import * as yup from "yup";
 
 interface DataType {
   key: string;
@@ -26,6 +29,14 @@ interface DataType {
   department: string;
   status: "Active" | "Inactive";
   lastLogin: string;
+}
+
+interface FormikInitial {
+  full_name: string;
+  email: string;
+  role: string;
+  department: string;
+  phone_number: string;
 }
 
 const UserManagement = () => {
@@ -217,12 +228,42 @@ const UserManagement = () => {
     },
   ];
 
+  const initialValues: FormikInitial = {
+    full_name: "",
+    email: "",
+    role: "",
+    department: "",
+    phone_number: "",
+  };
+
+  const validationSchema = yup.object().shape({
+    full_name: yup?.string()?.required("Full name is required"),
+    email: yup?.string()?.email()?.required("email is required"),
+    role: yup?.string()?.required("role is required"),
+    department: yup?.string()?.required("Department is required"),
+    phone_number: yup?.string()?.required("Phone Number is required"),
+  });
+
+  const { values, setFieldValue, handleSubmit, handleChange, errors, touched } =
+    useFormik<FormikInitial>({
+      initialValues: initialValues,
+      validationSchema: validationSchema,
+      onSubmit: () => console.log("value"),
+    });
+
+  console.log(values, "formik Value", errors, touched);
+
   return (
     <PageLayout
       title={"User Management"}
-      header2={false}
+      header2={true}
       DashboardCardvalue={DashboardCardvalue}
       ContactData={ContactData}
+      footer={
+        <div className="absolute bottom-0 px-[24px] py-[12px] bg-main-secondary w-[58%] flex justify-end">
+          <Buttoncomponent type="primary" label={"Add User"} />
+        </div>
+      }
     >
       <TableComponent dataSource={dataSource} columns={columns} header={true} />
       <Popup
@@ -232,9 +273,62 @@ const UserManagement = () => {
         Footer={true}
         footerLeftButtonlabel="Cancel"
         footerRightButtonlabel="Update User"
-        footerRightButtonOnclick={()=>alert("User Updated")}
+        footerRightButtonOnclick={() => handleSubmit()}
+        className="w-max"
       >
-        
+        <div className="grid grid-cols-2 gap-[16px]">
+          <Input
+            label="Full Name"
+            name="full_name"
+            onChange={handleChange}
+            value={values?.full_name}
+            mandatory={true}
+            error={errors && touched && errors?.full_name}
+            inputClass="w-[282px]"
+          />
+          <Input
+            label="Email Address"
+            name="email"
+            onChange={handleChange}
+            value={values?.email}
+            mandatory={true}
+            inputClass="w-[282px]"
+            error={errors && touched && errors?.email}
+          />
+          <SelectComponent
+            label="Role"
+            name="role"
+            onChange={(name, value) => setFieldValue(name, value)}
+            value={values?.role || null}
+            mandatory={true}
+            selectClass="w-[282px] "
+            placeholder="Please select"
+            options={[
+              { label: "Loan Officer", value: "loan_officer" },
+              { label: "Operation Manger", value: "operational_manager" },
+              { label: "Super Admin", value: "super_admin" },
+            ]}
+            error={errors && touched && errors?.role}
+          />
+          <Input
+            label="Department"
+            name="department"
+            onChange={handleChange}
+            value={values?.department}
+            mandatory={true}
+            inputClass="w-[282px]"
+            error={errors && touched && errors?.department}
+          />
+          <Input
+            label="Phone Number"
+            name="phone_number"
+            onChange={handleChange}
+            value={values?.phone_number}
+            mandatory={true}
+            inputClass="w-[282px]"
+            error={errors && touched && errors?.phone_number}
+          />
+        </div>
       </Popup>
     </PageLayout>
   );

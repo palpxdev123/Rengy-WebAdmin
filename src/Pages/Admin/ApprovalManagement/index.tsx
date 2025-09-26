@@ -46,20 +46,20 @@ const ApprovalManagement = () => {
   };
 
   return (
-    <PageLayout header3={true} title={"Approval Management"}>
+    <PageLayout header2={false} header3={true} title={"Approval Management"}>
       <div className="bg-main-secondary">
         <div className="flex justify-between w-full px-[20px] py-[12px] header-border-bottom">
           <Input
             search
-            style={{
-              width: "250px",
-              height: "36px",
-              padding: "8px 0px 8px 0px",
-            }}
+            size="small"
             placeholder="Search requests"
-            className="text-seven"
+            inputClass="text-seven w-[250px]"
           />
           <SelectComponent
+          name="approve"
+          size="small"
+          onChange={(name, value)=>console.log(name, value)
+          }
             placeholder="All Status"
             className="text-two select-text"
           />
