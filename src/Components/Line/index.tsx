@@ -33,7 +33,7 @@ const LineChart = () => {
         backgroundColor: "rgba(75,192,192,0.2)",
         tension: 0.4, // smooth line
         fill: true, // area under line
-        pointRadius: 0,
+        pointRadius: 0
       },
     ],
   };

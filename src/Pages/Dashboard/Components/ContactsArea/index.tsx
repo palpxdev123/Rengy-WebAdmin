@@ -8,7 +8,7 @@ interface Props {
 const ContactArea = ({ ContactData }: Props) => {
 
   return (
-    <div className="flex flex-col gap-[24px] pb-[24px]">
+    <div className="flex flex-col gap-[24px] pb-[24px] ">
       <ContactCard
         title="Vendor Contacts"
         viewAllAction={() => ""}
