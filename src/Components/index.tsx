@@ -7,6 +7,7 @@ import SelectComponent from "./Select"
 import TableComponent from "./TableComponent"
 import DropdownComponent from "./DropdownComponent"
 import Buttoncomponent from "./Button"
+import Bargarph from "./Bargraph"
 
 
 
@@ -18,5 +19,6 @@ export {
     Popup,
     TableComponent,
     DropdownComponent,
-    Buttoncomponent
+    Buttoncomponent,
+    Bargarph
 }

@@ -21,7 +21,6 @@ const Sidebar = ({ toggle, setToggle, sidebarSlide, setSlide }: any) => {
     });
   }, []);
   
-  console.log(toggle,"itemessss");
 
   const metaTitle = (title: string) => {
     const titleQuery: any = document?.getElementById("rengyTitle");

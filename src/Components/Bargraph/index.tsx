@@ -7,7 +7,7 @@ interface BarRowProps {
   barColorClass: string; // e.g. "Bargraph-1"
 }
 
-const BarRow: React.FC<BarRowProps> = ({ label, value, barWidth, barColorClass }) => {
+const BarRow = ({ label, value, barWidth, barColorClass }:BarRowProps) => {
   return (
     <>
     <div className="bar relative ">
