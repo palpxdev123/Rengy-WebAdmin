@@ -13,7 +13,7 @@ interface props {
 
 const ContactCard = ({ title, viewAllAction, items }: props) => {
 
-  console.log("rendering...");
+  // console.log("rendering...");
   
   return (
     <div className="bg-white h-[303px] rounded-[4px] ">

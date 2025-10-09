@@ -251,7 +251,7 @@ const UserManagement = () => {
       onSubmit: () => console.log("value"),
     });
 
-  console.log(values, "formik Value", errors, touched);
+  // console.log(values, "formik Value", errors, touched);
 
   return (
     <PageLayout
