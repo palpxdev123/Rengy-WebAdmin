@@ -1,0 +1,12 @@
+@import "../../styles/variables";
+.rengy-app , .ant-table-thead ,th{
+background-color: $DashboardTH!important;
+
+}
+
+.rengy-app , .ant-table-thead{
+border-top-left-radius: 10px;
+border-top-right-radius: 10px;
+}
+
+

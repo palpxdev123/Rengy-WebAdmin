@@ -1,138 +1,211 @@
-import { Notification, SelectComponent } from "../../Components";
-import BookingChart from "../../Components/Chart";
-import LineChart from "../../Components/Line";
-import PageLayout from "../../Components/PageLayout";
-import ProgressBar from "../../Components/Range";
-import RequestsApprovalCard from "../../Components/RequestsApproval";
+import { Checkbox } from "antd";
+import { Bargarph, TableComponent } from "../../Components";
 import "../../Styles/index.scss";
-import FlatCard from "./Components/Cards";
-import ConatctDashboardCard from "./Components/ContactCard";
+
 import "./style.scss";
-import { Profile } from "../../assets/Images";
-import ContactArea from "./Components/ContactsArea";
-import StagewiseProject from "./Components/DashboardTabSection";
+import { BiSortAlt2 } from "react-icons/bi";
+import { color } from "chart.js/helpers";
 
 const Dashboard = () => {
-  const dashboardData = {
-    data: [
-      {},
-      {},
-      {
-        list: [
-          {
-            today: [
-              { name: "Projects in Installations 60%", value: 60 },
-              { name: "Projects in Material Dispatch 30%", value: 20 },
-              { name: "Projects in DPR Stage 10%", value: 10 },
-            ],
-            week: [
-              { name: "Projects in Installations 60%", value: 55 },
-              { name: "Projects in Material Dispatch 30%", value: 25 },
-              { name: "Projects in DPR Stage 10%", value: 15 },
-            ],
-          },
-        ],
+  const barsData = [
+    {
+      label: "New Leads added",
+      value: 23,
+      barWidth: "251px",
+      barColorClass: "Bargraph-1",
+    },
+    {
+      label: "Initial Quotation Approved",
+      value: 22,
+      barWidth: "176px",
+      barColorClass: "Bargraph-2",
+    },
+    {
+      label: "60% payment",
+      value: 20,
+      barWidth: "116px",
+      barColorClass: "Bargraph-3",
+    },
+    {
+      label: "Final Payment",
+      value: 18,
+      barWidth: "106px",
+      barColorClass: "Bargraph-4",
+    },
+  ];
+
+  const columns = [
+    {
+      title: "Project ID",
+      dataIndex: "projectid",
+      key: "projectid",
+      width: "80px",
+      render: (_: string, record: any) => {
+        return <div className="ProjectID">{record?.projectid}</div>;
       },
-    ],
+      onHeaderCell: () => ({
+        style: {
+          maxWidth: 150,
+          whiteSpace: "nowrap",
+          overflow: "hidden",
+          textOverflow: "ellipsis",
+        },
+      }),
+      
+    },
+    {
+      title: "Vendor",
+      dataIndex: "vendor",
+      key: "vendor",
+      sorter: {
+        compare: (a: any, b: any) => a.vendor.localeCompare(b.vendor),
+      },
+      sortIcon: (sortOrder: any) => <BiSortAlt2 size={15} />,
+      width: "80px",
+      onHeaderCell: () => ({
+        style: {
+          maxWidth: 150,
+          whiteSpace: "nowrap",
+          overflow: "hidden",
+          textOverflow: "ellipsis",
+        },
+      }),
+      ellipsis: true,
+    },
+
+    {
+      title: "Amount Due",
+      dataIndex: "amountdue",
+      key: "subTitle",
+      sorter: {
+        compare: (a: any, b: any) => a.vendor.localeCompare(b.vendor),
+      },
+      sortIcon: (sortOrder: any) => <BiSortAlt2 size={15} />,
+      width: "80px",
+      onHeaderCell: () => ({
+        style: {
+          maxWidth: 150,
+          whiteSpace: "nowrap",
+          overflow: "hidden",
+          textOverflow: "ellipsis",
+        },
+      }),
+      
+    },
+    {
+      title: "Type",
+      dataIndex: "type",
+      key: "type",
+      sorter: {
+        compare: (a: any, b: any) => a.vendor.localeCompare(b.vendor),
+      },
+      sortIcon: (sortOrder: any) => <BiSortAlt2 size={15} />,
+      width: "80px",
+      onHeaderCell: () => ({
+        style: {
+          maxWidth: 150,
+          whiteSpace: "nowrap",
+          overflow: "hidden",
+          textOverflow: "ellipsis",
+        },
+      }),
+    },
+    {
+      title: "Assigned to",
+      dataIndex: "assigendto",
+      key: "assigendto",
+      sorter: {
+        compare: (a: any, b: any) => a.vendor.localeCompare(b.vendor),
+      },
+      sortIcon: (sortOrder: any) => <BiSortAlt2 size={15} />,
+      onHeaderCell: () => ({
+        style: {
+          maxWidth: 150,
+          whiteSpace: "nowrap",
+          overflow: "hidden",
+          textOverflow: "ellipsis",
+        },
+      }),
+    },
+    {
+      title: "",
+      dataIndex: "message",
+      key: "message",
+    },
+  ];
+
+  const dataSource = [
+    {
+      key: "1",
+      projectid: "PRJ-1001",
+      vendor: "TechnoBuild Solutions Pvt. Ltd.",
+      amountdue: "₹45,000",
+      type: "Construction",
+      assigendto: "Ravi Kumar",
+      message: "Pending invoice verification",
+    },
+    {
+      key: "2",
+      projectid: "PRJ-1002",
+      vendor: "UrbanEdge Developers",
+      amountdue: "₹1,20,000",
+      type: "Real Estate",
+      assigendto: "Anjali Mehta",
+      message: "Awaiting payment approval",
+    },
+    {
+      key: "3",
+      projectid: "PRJ-1003",
+      vendor: "BlueStone Interiors",
+      amountdue: "₹65,500",
+      type: "Interior Design",
+      assigendto: "Karthik Raj",
+      message: "PO created, awaiting confirmation",
+    },
+    {
+      key: "4",
+      projectid: "PRJ-1004",
+      vendor: "EcoSmart Lighting Co.",
+      amountdue: "₹28,750",
+      type: "Electrical",
+      assigendto: "Divya Sharma",
+      message: "Payment scheduled next week",
+    },
+    {
+      key: "5",
+      projectid: "PRJ-1005",
+      vendor: "AeroTech Consultants",
+      amountdue: "₹92,300",
+      type: "Engineering",
+      assigendto: "Suresh Iyer",
+      message: "Review under process",
+    },
+  ];
+
+  const handleRowSelction = (value: any) => {
+    console.log("DashboardRowSelection", value);
   };
 
-  const optionsSelect = [
-    { label: "Today", value: "today" },
-    { label: "This Week", value: "week" },
-  ];
-
-  const DashboardCardvalue = [
-    { value: "2.4M", percentage: 12.5, label: "Revenue" },
-    { value: 2847, percentage: 12.5, label: "Total Active Users" },
-    { value: 156, percentage: 12.5, label: "Total Loan Requests" },
-    { value: 89, percentage: 12.5, label: "Active Projects" },
-    { value: 23, percentage: -8.2, label: "Pending Approvals" },
-  ];
-
-  const ContactData = [
-    {
-      profile_pic: Profile,
-      profile_name: "Nagraj",
-      phone_number: "+91 9980556655",
-      email: "savannah@gmail.com",
-    },
-  ];
-
-  const tabs = [
-    "All",
-    "Exceptional",
-    "DPR Preparation",
-    "Material Dispatched",
-    "National",
-  ];
-
-  const Stagewiseproject = [
-    {
-      project_name: "Solar panel Installation",
-      Request_Id: "#REQ-123",
-      stage: "DPR Preparation stage",
-      expected_delivery_by: "12 Aug 2025",
-      requested_by: "Rajesh K",
-    },
-  ];
-
-  const requests = [
-    {
-      title: "Office Supplies Purchase",
-      description: "Request for stationery items",
-      projectId: "PRJ-101",
-      status: "Pending" as const,
-      vendor: "ABC Stationery",
-      amount: "₹12,500",
-      date: "2025-09-20",
-      flow: "Manager → Finance → Admin",
-    },
-  ];
-
   return (
-    <PageLayout
-      title={"Dashboard"}
-      header2={true}
-      DashboardCardvalue={DashboardCardvalue}
-      ContactData={ContactData}
-    >
-      <div className="flex justify-between gap-[24px]">
-        <BookingChart
-          dashboardData={dashboardData}
-          optionsSelect={optionsSelect}
-        />
-        <ConatctDashboardCard />
+    <div className="flex">
+      <div>
+        {barsData.map((bar, index) => (
+          <Bargarph
+            key={index}
+            label={bar.label}
+            value={bar.value}
+            barWidth={bar.barWidth}
+            barColorClass={bar.barColorClass}
+          />
+        ))}
       </div>
-
-      <div className="flex justify-between py-[24px]">
-        <div className="w-[100%]">
-          <div className="rounded-[4px] w-full bg-white">
-            <div className="p-[20px] h-[65px] flex justify-between border-b-[1px] border-header items-center">
-              <div className="flex">
-                <p className="pr-[8px]">Daily Vendor Flow</p>
-              </div>
-              <SelectComponent
-              onChange={()=>""}
-              name="week"
-              size="small"
-                value={"week"}
-                options={[{ label: "This week", value: "week" }]}
-              />
-            </div>
-            <div className="p-[20px]">
-              <LineChart />
-            </div>
-          </div>
-
-          <StagewiseProject tabs={tabs} Stagewiseproject={Stagewiseproject} />
-          <ProgressBar />
-
-          <RequestsApprovalCard request={requests[0]} />
-        </div>
-
-        <div></div>
-      </div>
-    </PageLayout>
+      <TableComponent
+        dataSource={dataSource}
+        columns={columns}
+        handleRowSelction={handleRowSelction}
+        pagination={false}
+      />
+    </div>
   );
 };
 
