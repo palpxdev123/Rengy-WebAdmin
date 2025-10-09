@@ -33,11 +33,11 @@ const PageLayout = ({
         return "h-[calc(100vh-150px)] overflow-y-scroll";
       }
     } else {
-      return "h-[calc(100vh-56px)] overflow-y-scroll";
+      return "h-[calc(100vh-86px)] overflow-y-scroll";
     }
     // return [header2, header3]?.some((value)=>value)
   };
-  console.log(height(), "fish");
+  // console.log(height(), "fish");
 
   return (
     <div>
@@ -48,10 +48,10 @@ const PageLayout = ({
           [header2, header3]?.some((value) => value)
             ? "h-[calc(100vh-116px)]"
             : "h-[calc(100vh-56px)]"
-        } flex flex-col justify-between mb-120px]`}
+        } flex flex-col justify-between `}
       >
         {DashboardCardvalue && (
-          <div className="flex justify-between gap-[24px]  pb-[24px]">
+          <div className="flex justify-between gap-[24px] pb-[24px]">
             {DashboardCardvalue?.map((item) => (
               <FlatCard
                 value={item?.value}
@@ -70,7 +70,7 @@ const PageLayout = ({
           </div>
         )}
         <div className="flex justify-between gap-[24px] w-[100%]">
-          <div className={`w-[68%] ${height()} scrollbarHidden`}>
+          <div className={`w-[70%] ${height()} scrollbarHidden`}>
             {children}
           </div>
           <div className={`w-[30%] ${height()} scrollbarHidden`}>

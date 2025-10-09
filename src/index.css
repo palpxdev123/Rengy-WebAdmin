@@ -1,2 +1,6 @@
 @import "tailwindcss";
 @import "../src/styles/_fonts.scss";
+
+/* body{
+    cursor: url('../src/assets/Images/Graphs.svg') 16 16, auto;
+} */

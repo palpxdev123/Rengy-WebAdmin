@@ -6,7 +6,7 @@ import { LuHandCoins } from "react-icons/lu";
 import { LuFolderCog } from "react-icons/lu";
 import { GoTasklist } from "react-icons/go";
 import { PiQuestion } from "react-icons/pi";
-import { Contactsicon,Helpicon,Reporticon} from "../../../src/assets/Images/index";
+import { Contactsicon, Reporticon} from "../../../src/assets/Images/index";
 import {
   ApprovalManagement,
   Dashboard,
@@ -39,13 +39,13 @@ export const SidebarItems = [
   },
   {
     title: "Payment Management",
-    element: <PaymentManagement />,
+    // element: <PaymentManagement />,
     route: "/paymentmanagement",
     icon: <LuHandCoins size={20} />,
     children: [
       {
         title: "Loan Request",
-        element: <Dashboard />,
+        element: <PaymentManagement />,
         route: "/paymentmanagement/dashboard1",
         icon: <FaChartLine />,
       },
