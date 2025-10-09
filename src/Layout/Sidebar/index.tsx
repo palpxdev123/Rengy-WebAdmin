@@ -20,6 +20,8 @@ const Sidebar = ({ toggle, setToggle, sidebarSlide, setSlide }: any) => {
       }
     });
   }, []);
+  
+  console.log(toggle,"itemessss");
 
   const metaTitle = (title: string) => {
     const titleQuery: any = document?.getElementById("rengyTitle");
@@ -27,6 +29,7 @@ const Sidebar = ({ toggle, setToggle, sidebarSlide, setSlide }: any) => {
   };
 
   const recursionFunction = (items: any, child: string, title: any) => {
+    
     return (
       <div
         className={`flex flex-col gap-[8px] text-one ${
@@ -71,7 +74,7 @@ const Sidebar = ({ toggle, setToggle, sidebarSlide, setSlide }: any) => {
                     </div>
                   )}
                 </NavLink>
-              ) : (
+              ) : (                 
                 <>
                   <div
                     onClick={() => {
@@ -144,6 +147,7 @@ const Sidebar = ({ toggle, setToggle, sidebarSlide, setSlide }: any) => {
       >
         {!sidebarSlide && <img src={RengyLogo} />}
         <BiDockRight
+          // onClick={()=>setToggle((prev: any)=>({...prev, layout: !prev?.layout}))}  
           onClick={() => setSlide((prev: any) => !prev)}
           size={16}
           className="menu-text-active cursor-pointer"

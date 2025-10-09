@@ -4,6 +4,8 @@ import { Suspense, useContext, useEffect } from "react";
 import { AuthContext } from "../../Utils/AuthProvider";
 import { SidebarItems } from "../../Utils/Interface/AdminSidebar";
 import { Login } from "../Pages";
+import {Dashboard} from '../Pages'
+// import Layout from "../CRM Layout";
 // import {Dashboard} from '../Pages'
 
 const RouteConfiguration = () => {
@@ -29,7 +31,7 @@ const RouteConfiguration = () => {
       )
     })
     
-    // console.log("hjkkkk");
+
     
 
   return (

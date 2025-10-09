@@ -19,6 +19,9 @@
 .hfive{
     @include hfive();
 }
+.hnine{
+     @include hnine();
+}
 .text-one{
     @include text-one();
 }
@@ -51,4 +54,13 @@
 }
 .text-eight{
     @include text-eight();
+}
+.text-nine{
+    @include text-nine();
+}
+.text-ten{
+    @include text-ten();
+}
+.hten{
+    @include hten();
 }

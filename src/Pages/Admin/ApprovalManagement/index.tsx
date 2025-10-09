@@ -6,6 +6,7 @@ import RequestsApprovalCard from "../../../Components/RequestsApproval";
 import { SelectComponent, Popup } from "../../../Components";
 import TextArea from "antd/es/input/TextArea";
 import { useState } from "react";
+import Steper from "../../Loan/Contact/Component/Steper";
 
 const ApprovalManagement = () => {
   const requests = [
@@ -77,6 +78,7 @@ const ApprovalManagement = () => {
           ))}
         </div>
       </div>
+      <Steper/>
 
       {/* ✅ Popup for selected request */}
       <Popup
