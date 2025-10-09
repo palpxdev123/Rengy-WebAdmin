@@ -1,6 +1,10 @@
+import Layout from "../../../CRM Layout";
+
 const Help = () => {
   return (
-    <div>Help</div>
+    <>
+    <Layout/>
+    </>
   )
 }
 

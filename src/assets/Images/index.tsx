@@ -13,6 +13,12 @@ import Helpicon from "../Images/Help.svg"
 import Reporticon from "./Report.svg"
 import ApprovalManagementicon from "./ApprovalManagement.svg"
 import Dashboardicon from "./Dashboard.svg"
+import RengyLogoimg from "./RengyLogoimg.svg"
+import Headericon from "./Headericon.svg"
+import Headerimage from "./headerimage.svg"
+import Projectmenu from "./Projectmenu.svg"
+import Reportmenu from "./Reportmenu.svg"
+import Finpartner from "./Fin-partnermenu.svg"
 
 
 
@@ -33,5 +39,11 @@ export {
     Helpicon,
     Reporticon,
     ApprovalManagementicon,
-    Dashboardicon
+    Dashboardicon,
+    RengyLogoimg,
+    Headericon,
+    Headerimage,
+    Projectmenu,
+    Reportmenu,
+    Finpartner
 }

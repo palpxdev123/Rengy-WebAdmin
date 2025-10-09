@@ -1,0 +1,17 @@
+
+.circle{
+    height: 32px;
+    width: 32px;
+    background-color: cadetblue;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.blackdot{
+    height: 2.67px;
+    width: 2.67px;
+    border-radius: 50%;
+    background-color: black;
+}

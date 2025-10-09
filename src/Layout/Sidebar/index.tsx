@@ -20,7 +20,9 @@ const Sidebar = ({ toggle, setToggle }: any) => {
     });
   }, []);
   
+  console.log(toggle,"itemessss");
   const recursionFunction = (items: any, child: string, title: any) => {
+    
     return (
       <div
         className={`flex flex-col gap-[8px] text-one ${
@@ -68,7 +70,7 @@ const Sidebar = ({ toggle, setToggle }: any) => {
                     </div>
                   )}
                 </NavLink>
-              ) : (
+              ) : (                 
                 <>
                   <div
                     onClick={() => {
@@ -121,7 +123,7 @@ const Sidebar = ({ toggle, setToggle }: any) => {
       <div className="h-[56px] header-border-bottom  px-[24px] py-[12px] flex justify-between items-center">
         <img src={RengyLogo} />
         <BiDockRight
-          // onClick={()=>setToggle((prev: any)=>({...prev, layout: !prev?.layout}))}
+          // onClick={()=>setToggle((prev: any)=>({...prev, layout: !prev?.layout}))}  
           size={16}
           className="menu-text-active cursor-pointer"
         />
@@ -133,4 +135,3 @@ const Sidebar = ({ toggle, setToggle }: any) => {
   );
 };
 export default Sidebar;
- 

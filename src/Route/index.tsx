@@ -1,10 +1,11 @@
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
-import Layout from "../Layout";
+// import Layout from "../Layout";
 import { Suspense, useContext, useEffect } from "react";
 import { AuthContext } from "../../Utils/AuthProvider";
 import { SidebarItems } from "../../Utils/Interface/AdminSidebar";
 import { Login } from "../Pages";
 import {Dashboard} from '../Pages'
+import Layout from "../CRM Layout";
 
 const RouteConfiguration = () => {
   const { isAuthenticate, setAuthenticate } = useContext(AuthContext);
@@ -29,7 +30,7 @@ const RouteConfiguration = () => {
       )
     })
     
-    // console.log("hjkkkk");
+
     
 
   return (

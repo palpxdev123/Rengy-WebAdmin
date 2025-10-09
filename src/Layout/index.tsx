@@ -13,7 +13,6 @@ const Layout = () => {
         <main className=" main-bg h-[100vh]">
           <Outlet />
         </main>
-       
       </div>
     </div>
   );

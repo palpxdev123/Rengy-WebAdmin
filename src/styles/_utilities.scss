@@ -48,6 +48,11 @@
 .bg-main-secondary {
   background-color: $white;
 }
+
+.login-bg {
+  background-color: $login-bg;
+}
+
 .black-color {
   color: $black;
 }
@@ -219,4 +224,33 @@
 
 .textarea-border{
   border: 1px solid $textarea-border;
+}
+
+.header-border{
+  border-bottom: 1px solid $header-border;
+}
+.input-bg{
+  background-color: $input-bg;
+}
+.search-text{
+  color: $search-text;
+}
+
+.Bargraph-1{
+  background-color: $Bargraph-1;
+}
+.Bargraph-2{
+  background-color: $Bargraph-2;
+}
+.Bargraph-3{
+  background-color: $Bargraph-3;
+}
+.Bargraph-4{
+  background-color: $Bargraph-4;
+}
+.Barlable{
+  color: $Barlable;
+}
+.dashboardcard{
+  border: 1px solid $dashboardcard;
 }

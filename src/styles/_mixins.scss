@@ -44,6 +44,16 @@
   font-weight: 500;
   line-height: 140%;
 }
+@mixin hnine(){
+  font-size: 34px;
+  font-weight: 700;
+  line-height: 20px;
+}
+@mixin hten(){
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 120%;
+}
 @mixin text-one() {
   font-size: 14px;
   font-weight: 500 !important;
@@ -82,4 +92,14 @@
   font-size: 12px;
   font-weight: 400;
   line-height: 16px;
+}
+@mixin text-nine() {
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 20px;
+}
+@mixin text-ten() {
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 120%;
 }

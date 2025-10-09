@@ -13,7 +13,7 @@ function App() {
         <ConfigProvider
           theme={{
             token: {
-              fontFamily: "'General Sans', sans-serif"
+              fontFamily: "'General Sans', sans-serif",
             },
           }}
         >
