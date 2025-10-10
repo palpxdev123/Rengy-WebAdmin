@@ -254,7 +254,18 @@
 .dashboardcard{
   border: 1px solid $dashboardcard;
 }
-
+.cardbgpending{
+  background-color: $cardbgpending;
+}
+.selectborder{
+  border: 1px solid $selectborder;
+}
+.cardboredrpending{
+  border: 1px solid $cardboredrpending;
+}
+.pipeline{
+  color: $pipeline;
+}
 .QuickAction{
   background:  $QuickAction;
 }

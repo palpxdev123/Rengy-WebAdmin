@@ -1,7 +1,7 @@
 import { ConfigProvider, Select } from "antd";
 import type { SelectProps } from "antd";
 import "./style.scss";
-import { CalenderIcon } from "../../assets/Images";
+import { CalenderIcon ,FliterIcon } from "../../assets/Images";
 import "../../Components/Typo/style.scss";
 import "../../styles/_utilities.scss";
 import { GoChevronDown } from "react-icons/go";
@@ -32,7 +32,10 @@ interface SelectComponentProps {
   mandatory?: boolean;
   selectClass?: string;
   height?: string;
-  size?:string
+  size?:string;
+  calenderprefix?:boolean;
+  calendersuffix?:boolean;
+  filter?:boolean;
 }
 
 const SelectComponent = ({
@@ -57,6 +60,9 @@ const SelectComponent = ({
   mandatory,
   selectClass,
   height,
+  calendersuffix,
+  calenderprefix,
+  filter
 }: SelectComponentProps) => {
   return (
     <div className="flex flex-col">
@@ -74,7 +80,7 @@ const SelectComponent = ({
       >
         <Select
         suffixIcon={
-          calender ? (
+          calendersuffix ? (
             <div className={`${size === "small" ? "selectsmallArrow" : "selectArrow"} flex justify-center items-center`} >
               <img
                 src={CalenderIcon}
@@ -88,7 +94,14 @@ const SelectComponent = ({
           )
 
         }
-        prefix={false}
+        prefix={ calenderprefix && 
+            <div className={`${size === "small" ? "selectsmallArrow" : "selectArrow"} flex justify-center items-center ml-[8px]`}>
+                           <img
+                src={filter ? FliterIcon : CalenderIcon}
+                style={{ marginLeft: "8px", width: 16, height: 16 }}
+              />
+            </div>
+          }
         mode={mode}
         placeholder={placeholder}
         value={value ?? undefined}
@@ -101,7 +114,7 @@ const SelectComponent = ({
         filterOption={filterOption}
         onClear={onClear}
         searchValue={searchValue}
-        className={`${selectClass} ${size === "small" && "!h-[36px] !rounded-[4px]"} rengy rounded-[8px] border indent-[12px] ${
+        className={`${selectClass} ${size === "small" && "!h-[36px] !rounded-[4px]"} rengy rounded-[8px] border${
           error ? "error-input-border" : "input-border"
         }  text-six outline-0 text-secondary`}
         style={{

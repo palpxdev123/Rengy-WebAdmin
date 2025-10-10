@@ -1,5 +1,4 @@
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
-
 import { Suspense, useContext, useEffect } from "react";
 import { AuthContext } from "../../Utils/AuthProvider";
 import { SidebarItems } from "../../Utils/Interface/CRM";

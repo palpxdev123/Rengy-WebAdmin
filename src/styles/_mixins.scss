@@ -54,6 +54,26 @@
   font-weight: 700;
   line-height: 120%;
 }
+@mixin heleven(){
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 30px;
+}
+@mixin htwelve(){
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 120%;
+}
+@mixin hthirteen(){
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 120%;
+}
+@mixin hfourteen(){
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 40px;
+}
 @mixin text-one() {
   font-size: 14px;
   font-weight: 500 !important;

@@ -4,7 +4,7 @@ import Header from "./Header";
 import BarChartComponent from "../Components/Barchart";
 import "../styles/_utilities.scss";
 import "../Components/Typo/style.scss";
-import { SelectComponent } from "../Components";
+import { Input, SelectComponent } from "../Components";
 import BarRow from "../Components/Bargraph";
 import { Outlet } from "react-router-dom";
 import { layouts } from "chart.js";
