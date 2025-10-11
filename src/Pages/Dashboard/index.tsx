@@ -3,6 +3,7 @@ import { FaChevronUp } from "react-icons/fa";
 import { FaCircleUser } from "react-icons/fa6";
 import {
   Bargarph,
+  Buttoncomponent,
   Input,
   SelectComponent,
   TableComponent,
@@ -23,6 +24,7 @@ import {
 } from "../../assets/Images";
 import "../../styles/_utilities.scss";
 import PipelineCard from "../../Components/PipelineCard";
+import { useState } from "react";
 
 // import { GridIcon, HumburgerIcom } from "../../";
 
@@ -359,6 +361,34 @@ const Dashboard = () => {
   const newLead = cardsData?.filter((value) => value?.type === "NewLead");
   const siteSurvey = cardsData?.filter((value) => value?.type === "SiteSurvey");
   const payments = cardsData?.filter((value) => value?.type === "Payments");
+
+  const columnspipeline = [
+
+  { title: "Milestone", dataIndex: "type", key: "milestone" },
+  { title: "Lead ID", dataIndex: "leadId", key: "leadId" },
+  { title: "Project", dataIndex: "title", key: "project" },
+  { title: "Name", dataIndex: "name", key: "name" },
+  { title: "Address", dataIndex: "location", key: "address" },
+  { title: "Source", dataIndex: "source", key: "source" },
+  { title: "Vendor", dataIndex: "vendor", key: "vendor" },
+  { title: "Project Value", dataIndex: "projectValue", key: "projectValue" },
+  { title: "Amount Paid", dataIndex: "amountPaid", key: "amountPaid" },
+  { title: "Due Amount", dataIndex: "dueAmount", key: "dueAmount" },
+  { title: "Sub Task Stage", dataIndex: "subTaskStage", key: "subTaskStage" },
+  { title: "Assigned To", dataIndex: "assignedTo", key: "assignedTo" },
+  {
+    title: "Delay",
+    dataIndex: "delay",
+    key: "delay",
+    render: (text: string) => (
+      <span style={{ color: text === "Delayed" ? "red" : "inherit" }}>{text}</span>
+    ),
+  },
+];
+
+const [switchStyle, setswitchStyle] = useState(false)
+
+
   return (
     <>
       <div className="flex justify-between items-center p-[16px]">
@@ -430,6 +460,8 @@ const Dashboard = () => {
             columns={columns}
             handleRowSelction={handleRowSelction}
             pagination={false}
+            className="h-[240px] overflow-scroll"
+            selection={true}
           />
         </div>
       </div>
@@ -439,11 +471,11 @@ const Dashboard = () => {
           <div className="flex justify-between">
             <h3 className="hone pipeline">My Pipeline</h3>
             <div className="flex gap-[8px] items-center">
-              <div className="h-[34px] w-[40px] !rounded-[100px] selectborder flex justify-center items-center !py-[5px] !px-[8px]">
+              <div onClick={()=>setswitchStyle(true)} className="h-[34px] w-[40px] !rounded-[100px] selectborder flex justify-center items-center !py-[5px] !px-[8px]">
                 {" "}
                 <img src={GridIcon} alt="" />
               </div>
-              <div className="h-[34px] w-[40px] !rounded-[100px] selectborder flex justify-center items-center !py-[5px] !px-[8px]">
+              <div onClick={()=>setswitchStyle(false)} className="h-[34px] w-[40px] !rounded-[100px] selectborder flex justify-center items-center !py-[5px] !px-[8px]">
                 <img src={HumburgerIcom} alt="" />
               </div>
               <Input
@@ -475,13 +507,24 @@ const Dashboard = () => {
             </div>
           </div>
         </div>
+        {
+          !switchStyle ? <TableComponent
+          dataSource={cardsData.map((item, index) => ({
+            key: index,
+            ...item,
+          }))}
+          columns={columnspipeline}
+          selection={true}
+          className="w-[100%] overflow-scroll"
+        />
+        :
         <div className="flex justify-between gap-[24px]">
           <div>
             <div className="flex mb-[20px]">
               <div className="NewLeadbg h-[40px] w-[40px] rounded-l-lg flex justify-center items-center">
                 01
               </div>
-              <div className="flex justify-between items-center bg-[white] rounded-r-lg w-[320px] px-[12px] py-[8px]">
+              <div className="flex justify-between items-center bg-[white] rounded-r-lg w-[100%] px-[12px] py-[8px]">
                 <p>New Lead</p>
                 <p>+</p>
               </div>
@@ -495,7 +538,7 @@ const Dashboard = () => {
               <div className="SiteSurvey h-[40px] w-[40px] rounded-l-lg flex justify-center items-center">
                 01
               </div>
-              <div className="flex justify-between items-center bg-[white] rounded-r-lg w-[320px] px-[12px] py-[8px]">
+              <div className="flex justify-between items-center bg-[white] rounded-r-lg w-[100%] px-[12px] py-[8px]">
                 <p>Site Survey</p>
                 <p>+</p>
               </div>
@@ -510,7 +553,7 @@ const Dashboard = () => {
               <div className="payments h-[40px] w-[40px] rounded-l-lg flex justify-center items-center">
                 01
               </div>
-              <div className="flex justify-between items-center bg-[white] rounded-r-lg w-[320px] px-[12px] py-[8px]">
+              <div className="flex justify-between items-center bg-[white] rounded-r-lg w-[100%] px-[12px] py-[8px]">
                 <p>Payment</p>
                 <p>+</p>
               </div>
@@ -521,6 +564,7 @@ const Dashboard = () => {
             ))}
           </div>
         </div>
+        }
       </div>
     </>
   );

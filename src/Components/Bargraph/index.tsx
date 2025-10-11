@@ -8,8 +8,7 @@ interface BarRowProps {
   barColor: string; // e.g. "Bargraph-1"
 }
 
-const BarRow = ({ label, value, barWidth, barColor }:BarRowProps) => {
-  console.log(barColor,"gjhgjh");
+const BarRow = ({ label, value, barWidth, barColor }:BarRowProps) => {  
   
   return (
     
