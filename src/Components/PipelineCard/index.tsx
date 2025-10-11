@@ -113,7 +113,7 @@ const PipelineCard: React.FC<PipelineCardProps> = ({ item }) => {
       )}
 
       <div className="flex justify-center items-center mt-[12px]">
-        <div className="h-[40px] w-[326px] NewLeadbg text-white px-[16px] rounded-[8px] flex justify-center items-center">
+        <div className="h-[40px] w-[100%] NewLeadbg text-white px-[16px] rounded-[8px] flex justify-center items-center">
           {item?.buttonLabel}
         </div>
       </div>

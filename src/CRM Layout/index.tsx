@@ -29,9 +29,11 @@ const Layout = () => {
         <div className=" w-[calc(100%-300px)] ">
           <Header />
           <div className="flex justify-between ">
-            <main className="h-[calc(100vh-80px)] p-[16px] bg-main-secondary ">
+            <div className="w-[calc(100%-341px)] overflow-x-scroll">
+              <main className="h-[calc(100vh-80px)] w-[1200px] overflow-y-scroll p-[16px] bg-main-secondary ">
               <Outlet />
             </main>
+            </div>
             <section className="p-[12px] w-[341px] QuickAction">
               Quick Actions
             </section>

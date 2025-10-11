@@ -8,8 +8,10 @@ interface props {
   dataSource: any[];
   columns: any[];
   header?: boolean;
-  handleRowSelction: ({}) => void;
+  handleRowSelction?: any;
   pagination?: any;
+  className?:string;
+  selection?:boolean
 }
 
 const TableComponent = ({
@@ -18,6 +20,8 @@ const TableComponent = ({
   header,
   handleRowSelction,
   pagination = false,
+  className,
+  selection = false
 }: props) => {
   return (
     <div className="bg-main-secondary">
@@ -56,13 +60,13 @@ const TableComponent = ({
       <Table
         dataSource={dataSource}
         columns={columns}
-        className="rengy-app"
-        rowSelection={{
+        className={`${className} rengy-app`}
+        rowSelection={ selection ? {
           type: "checkbox",
           onChange(selectedRowKeys, selectedRows, info) {
             handleRowSelction({ selectedRowKeys, selectedRows });
           },
-        }}
+        } : undefined}
         pagination={pagination}
         onRow={() => ({
           style: {
