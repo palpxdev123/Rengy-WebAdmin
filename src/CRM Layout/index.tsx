@@ -29,7 +29,7 @@ const Layout = () => {
         <div className=" w-[calc(100%-300px)] ">
           <Header />
           <div className="flex justify-between ">
-            <main className="h-[calc(100vh-80px)] p-[16px] bg-main-secondary">
+            <main className="h-[calc(100vh-80px)] p-[16px] bg-main-secondary ">
               <Outlet />
             </main>
             <section className="p-[12px] w-[341px] QuickAction">

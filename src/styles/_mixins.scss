@@ -74,6 +74,11 @@
   font-weight: 700;
   line-height: 40px;
 }
+@mixin hthirtteen(){
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 150%;
+}
 @mixin text-one() {
   font-size: 14px;
   font-weight: 500 !important;
