@@ -23,6 +23,9 @@ import CardSuccess from "./CardSuccess.svg"
 import GridIcon from "./GridIcon.svg"
 import HumburgerIcom from "./HamburgerIcon.svg"
 import FliterIcon from "./Filter.svg"
+import LocationIcon from "./LocationIcon.svg"
+import DownloadPipe from "./DownloadPipe.svg"
+import ProfileIconPipe from "./ProfileIconPipe.svg"
 
 
 
@@ -53,5 +56,8 @@ export {
     Finpartner,
     GridIcon,
     HumburgerIcom,
-    FliterIcon
+    FliterIcon,
+    LocationIcon,
+    DownloadPipe,
+    ProfileIconPipe
 }

@@ -1,4 +1,4 @@
-@import "../../styles/variables";
+@use "../../styles/variables" as *;
 .rengy-app , .ant-table-thead ,th{
 background-color: $DashboardTH!important;
 
