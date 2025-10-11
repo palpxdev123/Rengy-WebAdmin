@@ -1,0 +1,15 @@
+@use '../../styles/variables' as *;
+
+.dropdown-rengy {
+  :where(.ant-dropdown) .ant-dropdown-menu {
+    .ant-dropdown-menu-item:hover,
+    .ant-dropdown-menu-submenu-title:hover {
+      background-color: $Dropdown-hover !important;
+    }
+  }
+}
+
+:where(.ant-dropdown) .ant-dropdown-menu-item:hover,
+:where(.ant-dropdown) .ant-dropdown-menu-submenu-title:hover {
+  background-color: $Dropdown-hover !important;
+}

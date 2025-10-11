@@ -1,0 +1,7 @@
+@use "../../../styles/mixins" as *;
+@use "../../../styles/variables" as *;
+
+.rengy-app .ant-table-thead .ant-table-cell {
+  color: $text-secondary !important;
+  @include text-one(); 
+}

@@ -1,0 +1,44 @@
+@use '../../styles/variables' as *;
+
+.ant-select .ant-select-arrow {
+  color: $black;
+}
+
+.icon-color{
+    color: $black;
+}
+
+.rengy .ant-select-selector{
+  border: 0 !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  background: none !important;
+
+}
+
+.rengy .ant-select-selector:focus-visible{
+  outline: 0 !important
+
+}
+
+.ant-select-item.ant-select-item-option.ant-select-item-option-selected, .ant-select-item.ant-select-item-option.ant-select-item-option-active{
+  background-color: $Dropdown-hover;
+}
+
+.rengy .ant-select-arrow {
+  color: $view-green
+}
+
+.selectsmallArrow{
+  height: 16px;
+  width: 16px
+}
+
+.selectArrow{
+  height: 20px;
+  width: 20px
+}
+

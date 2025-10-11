@@ -5,8 +5,9 @@ import { NavLink, useLocation } from "react-router-dom";
 import { RengyLogo } from "../../assets/Images";
 import { FaChevronDown, FaChevronUp } from "react-icons/fa6";
 import { useEffect } from "react";
+import "../../Components/Typo/style.scss";
 
-const Sidebar = ({ toggle, setToggle }: any) => {
+const Sidebar = ({ toggle, setToggle, sidebarSlide, setSlide }: any) => {
   const location = useLocation();
 
   useEffect(() => {
@@ -15,14 +16,22 @@ const Sidebar = ({ toggle, setToggle }: any) => {
         menu.children?.some((child: any) => child.route === location.pathname)
       ) {
         setToggle([{ title: menu.title, open: true }]);
+        metaTitle(menu.title);
       }
     });
   }, []);
   
+
+  const metaTitle = (title: string) => {
+    const titleQuery: any = document?.getElementById("rengyTitle");
+    titleQuery.innerText = `Rengy-${title}`;
+  };
+
   const recursionFunction = (items: any, child: string, title: any) => {
+    
     return (
       <div
-        className={`flex flex-col gap-[8px] ${
+        className={`flex flex-col gap-[8px] text-one ${
           child === "child" && "ml-[12px] "
         }`}
       >
@@ -33,27 +42,24 @@ const Sidebar = ({ toggle, setToggle }: any) => {
                 <NavLink to={menu?.route} className="gap-y-[8px]">
                   {({ isActive }) => (
                     <div
-                      onClick={() =>
+                      onClick={() => {
+                        metaTitle(menu?.title);
                         child
-                          ? setToggle((prev: any)=>{
-
-                            return prev?.map((value: any)=>({
-                              ...value,
-                              ...(value?.title === title ? {open: true} : {open: false} )
-                            }))
-                          })
-
-                          :
-
-                          setToggle((prev: any)=>{
-
-                            return prev?.map((value: any)=>({
-                              ...value,
-                              open: false
-                            }))
-                          })
-                          
-                      }
+                          ? setToggle((prev: any) => {
+                              return prev?.map((value: any) => ({
+                                ...value,
+                                ...(value?.title === title
+                                  ? { open: true }
+                                  : { open: false }),
+                              }));
+                            })
+                          : setToggle((prev: any) => {
+                              return prev?.map((value: any) => ({
+                                ...value,
+                                open: false,
+                              }));
+                            });
+                      }}
                       className={`${
                         isActive
                           ? child === "child"
@@ -63,11 +69,11 @@ const Sidebar = ({ toggle, setToggle }: any) => {
                       } py-[10px] px-[12px] rounded-[4px] flex gap-[8px] items-center transition-all duration-100 ease-in-out`}
                     >
                       {menu?.icon}
-                      {menu?.title}
+                      {!sidebarSlide ? menu?.title : null}
                     </div>
                   )}
                 </NavLink>
-              ) : (
+              ) : (                 
                 <>
                   <div
                     onClick={() => {
@@ -76,32 +82,48 @@ const Sidebar = ({ toggle, setToggle }: any) => {
                           (item) => item.title === menu.title
                         );
                         if (exists) {
-                          return toggle?.filter((value: any)=>value?.title !== menu?.title)
+                          return toggle?.filter(
+                            (value: any) => value?.title !== menu?.title
+                          );
                         } else {
                           return [...prev, { title: menu.title, open: false }];
                         }
                       });
                     }}
                     className={`${
-                      toggle?.some((value: any)=>(value?.title === menu?.title && value?.open))
+                      toggle?.some(
+                        (value: any) =>
+                          value?.title === menu?.title && value?.open
+                      )
                         ? "menu-active text-secondary"
                         : "text-white"
-                    } py-[10px] px-[12px] rounded-[4px] flex justify-between  cursor-pointer items-center transition-all duration-100 ease-in-out`}
+                    } py-[10px] px-[12px] rounded-[4px] flex justify-between  cursor-pointer items-center transition-all duration-300 ease-in-out`}
                   >
-                    <div className="flex items-center gap-[8px] ">
+                    <div className="flex items-center gap-[8px] text-two ">
                       {menu?.icon}
-                      {menu?.title}{" "}
+                      {!sidebarSlide ? menu?.title : null}
                     </div>
-                    <div>
-                      {toggle?.some((value: any)=>value?.title === menu?.title) ? (
-                        <FaChevronUp />
-                      ) : (
-                        <FaChevronDown />
-                      )}
-                    </div>
+                    {!sidebarSlide && (
+                      <div>
+                        {toggle?.some(
+                          (value: any) => value?.title === menu?.title
+                        ) ? (
+                          <FaChevronUp />
+                        ) : (
+                          <FaChevronDown />
+                        )}
+                      </div>
+                    )}
                   </div>
-                  {toggle?.some((value: any)=>value?.title === menu?.title) &&
-                    recursionFunction(menu?.children, "child", menu?.title)}
+                  <div
+                    className={`transition-all duration-300 ease-in-out overflow-hidden ${
+                      toggle?.some((value: any) => value?.title === menu?.title)
+                        ? "max-h-[500px] opacity-100 mt-[4px]"
+                        : "max-h-0 opacity-0"
+                    }`}
+                  >
+                    {recursionFunction(menu?.children, "child", menu?.title)}
+                  </div>
                 </>
               )}
             </>
@@ -114,22 +136,26 @@ const Sidebar = ({ toggle, setToggle }: any) => {
   return (
     <aside
       className={`${
-        toggle?.layout ? "w-[100px]" : "w-[240px]"
-      }  bg-main-primary`}
+        sidebarSlide ? "w-[100px]" : "w-[240px]"
+      }  bg-main-primary h-[100vh] overflow-y-scroll transition-all ease-in-out duration-300 `}
     >
-      <div className="h-[56px] header-border-bottom  px-[24px] py-[12px] flex justify-between items-center">
-        <img src={RengyLogo} />
+      <div
+        className={`h-[56px] header-border-bottom  px-[24px] py-[12px] flex justify-between items-center fixed ${
+          sidebarSlide ? "w-[100px]" : "w-[240px]"
+        } bg-main-primary`}
+      >
+        {!sidebarSlide && <img src={RengyLogo} />}
         <BiDockRight
-          // onClick={()=>setToggle((prev: any)=>({...prev, layout: !prev?.layout}))}
+          // onClick={()=>setToggle((prev: any)=>({...prev, layout: !prev?.layout}))}  
+          onClick={() => setSlide((prev: any) => !prev)}
           size={16}
           className="menu-text-active cursor-pointer"
         />
       </div>
-      <div className="px-[16px] py-[20px]">
+      <div className="px-[16px] py-[20px] mt-[56px]">
         {recursionFunction(SidebarItems, "", "")}
       </div>
     </aside>
   );
 };
 export default Sidebar;
- 

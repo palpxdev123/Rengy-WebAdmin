@@ -1,14 +1,15 @@
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
-import Layout from "../Layout";
 import { Suspense, useContext, useEffect } from "react";
 import { AuthContext } from "../../Utils/AuthProvider";
-import { SidebarItems } from "../../Utils/Interface/AdminSidebar";
+import { SidebarItems } from "../../Utils/Interface/CRM";
 import { Login } from "../Pages";
-import { decryptData } from "../../Utils/CommonFunctions";
+import {Dashboard} from '../Pages'
+import Layout from "../CRM Layout";
+// import Layout from "../CRM Layout";
+// import {Dashboard} from '../Pages'
 
 const RouteConfiguration = () => {
   const { isAuthenticate, setAuthenticate } = useContext(AuthContext);
-  console.log(decryptData(localStorage?.getItem("userType") || ''), "progress");
 
 
   useEffect(() => {
@@ -30,7 +31,7 @@ const RouteConfiguration = () => {
       )
     })
     
-    // console.log("hjkkkk");
+
     
 
   return (
@@ -41,6 +42,7 @@ const RouteConfiguration = () => {
           {isAuthenticate ? (
             <Route>
               <Route path="/" element={<Layout />}>
+              <Route index element={<Navigate to={'/dashboard'} />}></Route>
                 {
                   routerRender(SidebarItems)
                 }

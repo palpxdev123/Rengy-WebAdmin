@@ -1,18 +1,21 @@
-import React from "react";
-import { Select } from "antd";
+import { ConfigProvider, Select } from "antd";
 import type { SelectProps } from "antd";
+import "./style.scss";
+import { CalenderIcon ,FliterIcon } from "../../assets/Images";
+import "../../Components/Typo/style.scss";
+import "../../styles/_utilities.scss";
+import { GoChevronDown } from "react-icons/go";
 
 interface OptionType {
-  label: string;
+  label?: string;
   value: string | number;
 }
-
 interface SelectComponentProps {
   label?: string;
   placeholder?: string;
   className?: string;
-  value?: string | number | (string | number)[];
-  onChange?: (value: any, option?: any) => void;
+  value?: string | number | null;
+  onChange: (name: string, value?: any) => void;
   options?: OptionType[];
   disabled?: boolean;
   error?: string;
@@ -23,39 +26,86 @@ interface SelectComponentProps {
   maxTagCount?: number | "responsive";
   searchValue?: string;
   filterOption?: SelectProps["filterOption"];
-  /** custom prop, not passed to antd Select */
-  name?: string;
+  name: string;
   onClear?: () => void;
+  calender?: boolean;
+  mandatory?: boolean;
+  selectClass?: string;
+  height?: string;
+  size?:string;
+  calenderprefix?:boolean;
+  calendersuffix?:boolean;
+  filter?:boolean;
 }
 
-const SelectComponent: React.FC<SelectComponentProps> = ({
+const SelectComponent = ({
+  size,
+  name,
   label,
-  placeholder,
+  placeholder = "Select",
   className = "",
   value,
   onChange,
   options = [],
   disabled = false,
   error,
-  touched,
   showSearch = false,
   mode,
   allowClear = false,
   maxTagCount = 1,
   searchValue,
   filterOption,
-  name, // ✅ only used internally, not passed to <Select>
+  calender,
   onClear,
-}) => {
+  mandatory,
+  selectClass,
+  height,
+  calendersuffix,
+  calenderprefix,
+  filter
+}: SelectComponentProps) => {
   return (
-    <div className={className}>
-      {label && <label htmlFor={name}>{label}</label>}
-      <Select
-        id={name} // ✅ use id instead of name
+    <div className="flex flex-col">
+      {label && <div className="mb-[6px] text-two text-secondary">
+        {label}
+        {mandatory && <span className="decrease-color">*</span>}
+      </div>}
+      <ConfigProvider 
+      theme={{
+        token:{
+          fontSize: size === "small" ? 14 : 16,
+          colorText: size === "small" ? "select-text" : "text-secondary"
+        }
+      }}
+      >
+        <Select
+        suffixIcon={
+          calendersuffix ? (
+            <div className={`${size === "small" ? "selectsmallArrow" : "selectArrow"} flex justify-center items-center`} >
+              <img
+                src={CalenderIcon}
+                style={{ marginLeft: "8px", width: 16, height: 16 }}
+              />
+            </div>
+          ) : (
+            <div className={`${size === "small" ? "selectsmallArrow" : "selectArrow"} flex justify-center items-center ml-[8px]`}>
+              <GoChevronDown className="h-[20px] w-[20px] view-text" />
+            </div>
+          )
+
+        }
+        prefix={ calenderprefix && 
+            <div className={`${size === "small" ? "selectsmallArrow" : "selectArrow"} flex justify-center items-center ml-[8px]`}>
+                           <img
+                src={filter ? FliterIcon : CalenderIcon}
+                style={{ marginLeft: "8px", width: 16, height: 16 }}
+              />
+            </div>
+          }
         mode={mode}
         placeholder={placeholder}
         value={value ?? undefined}
-        onChange={onChange}
+        onChange={(value) => onChange(name, value)}
         disabled={disabled}
         options={options}
         showSearch={showSearch}
@@ -64,9 +114,15 @@ const SelectComponent: React.FC<SelectComponentProps> = ({
         filterOption={filterOption}
         onClear={onClear}
         searchValue={searchValue}
-        // searchValue={searchValue}
+        className={`${selectClass} ${size === "small" && "!h-[36px] !rounded-[4px]"} rengy rounded-[8px] border${
+          error ? "error-input-border" : "input-border"
+        }  text-six outline-0 text-secondary`}
+        style={{
+          height: height || "48px",
+        }}
       />
-      {error && touched && <div style={{ color: "red" }}>{error}</div>}
+      </ConfigProvider>
+      <div className="decrease-color">{error && error}</div>
     </div>
   );
 };

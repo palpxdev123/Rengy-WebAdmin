@@ -1,0 +1,22 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.rengy-popup .ant-modal-content{
+    padding: 40px;
+}
+
+.rengy-popup  .ant-modal-close{
+    color: $view-green
+}
+
+.rengy-popup  .ant-modal-close:hover{
+    color: $view-green;
+    background: none
+    
+}
+
+.rengy-popup  .ant-modal-title{
+    @include hseven();
+    color: $text-secondary;
+    margin-bottom: 16px;
+}

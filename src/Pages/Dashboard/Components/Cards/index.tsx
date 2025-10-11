@@ -1,27 +1,37 @@
 import React from "react";
-import { Card } from "antd";
-import { Graph } from "../../../../assets/Images/index";
+import { Graph, GraphDown, CardSuccess } from "../../../../assets/Images/index";
+import "../../../../Components/Typo/style.scss";
+import "../../../../styles/_utilities.scss";
 
-const FlatCard: React.FC = () => (
-  <Card
-    bordered={false}
-    style={{
-      width: 211,
-      height: 92,
-      boxShadow: "none",
-      background: "#f9fafb", // light gray bg
-    }}
-    bodyStyle={{ padding: 16 }} // 👈 custom body padding
-  >
-    <div className="flex justify-between items-center mb-[8px]">
-      <p style={{ fontSize: 14, color: "#67606E" }}>Total Active Users</p>
-      <img src={Graph} alt="Graph" />
+interface FlatCardProps {
+  value: any;
+  percentage?: string;
+  label: string;
+  isPositive: boolean;
+  imageSource?: string;
+}
+
+const FlatCard: React.FC<FlatCardProps> = ({
+  value,
+  percentage,
+  label,
+  isPositive,
+  imageSource,
+}) => {
+  return (
+    <div className={`w-full flex justify-between items-center dashboardcard p-[16px] rounded-[8px] h-[130px] w-[100%] ${isPositive ? "" : "cardbgpending cardboredrpending"}`}>
+      <div className="flex flex-col gap-[8px] w-[161px]">
+        <h1 className="heleven">{value}</h1>
+        <p className="htwelve  w-[135px]">{label}</p>
+        <p
+          className={`hthirteen ${isPositive ? "view-text" : "decrease-color"}`}
+        >
+          {percentage}
+        </p>
+      </div>
+      {isPositive && <img src={CardSuccess} alt="Graph" />}
     </div>
-    <div className="flex justify-between items-center">
-      <h3 style={{ margin: 0, fontSize: 24 }}>2847</h3>
-      <p style={{ color: "green",fontSize: 14 }}>+12.5%</p>
-    </div>
-  </Card>
-);
+  );
+};
 
 export default FlatCard;

@@ -1,2 +1,13 @@
 @import "tailwindcss";
+@import "../src/styles/_fonts.scss";
+/* :root {
+  --bar1: rgba(0, 121, 243, 0.2);
+  --bar2: rgba(0, 121, 243, 0.4);
+  --bar3: rgba(0, 121, 243, 0.7);
+  --bar4: rgba(0, 121, 243, 1);
+} */
 
+
+/* body{
+    cursor: url('../src/assets/Images/Graphs.svg') 16 16, auto;
+} */

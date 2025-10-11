@@ -1,63 +1,299 @@
 @use "variables" as *;
- 
+
 // Background color utilities
 
-.bg-primary { background-color: $primary; }
-
-.bg-secondary { background-color: $secondary; }
-
-.bg-danger { background-color: $danger; }
-
-.bg-warning { background-color: $warning; }
-
-.bg-info { background-color: $info; }
-
-.bg-dark { background-color: $dark; }
-
-.bg-light { background-color: $light; }
-
-.bg-main-primary{background-color: $primary-bg;}
-
-.bg-main-secondary{background-color: $white;}
-
-.main-bg{background-color: $main-bg-color;}
-
-.menu-active{background-color: $menu-active;}
-.menu-active-border{border-left-color: $menu-active;}
-.menu-active-bg{
-    background-color: $menu-bg-child;
+.bg-primary {
+  background-color: $primary;
 }
 
-.input-border{border: 1px solid $input-border;}
+.bg-secondary {
+  background-color: $secondary;
+}
 
-.search-icon{color: $search-icon;}
+.bg-danger {
+  background-color: $danger;
+}
 
+.bg-warning {
+  background-color: $warning;
+}
+
+.bg-info {
+  background-color: $info;
+}
+
+.bg-dark {
+  background-color: $dark;
+}
+
+.bg-light {
+  background-color: $light;
+}
+
+.progress-bar {
+  background-color: $progress-bar;
+}
+
+.progress-bg {
+  background-color: $progress-bg;
+}
+
+.bg-main-primary {
+  background-color: $primary-bg;
+}
+.border-main-primary {
+  border: 2px solid $primary-bg;
+}
+
+.bg-main-secondary {
+  background-color: $white;
+}
+
+.login-bg {
+  background-color: $login-bg;
+}
+
+.black-color {
+  color: $black;
+}
+
+.borderwe {
+  border-right-color: $input-border;
+}
+.bg-chip-stage1 {
+  background: $chip-stage1;
+}
+
+.main-bg {
+  background-color: $main-bg-color;
+}
+
+.pending-bg {
+  background-color: $pending-bg;
+}
+.rejected-bg {
+  background-color: $rejected-bg;
+}
+.approved-bg {
+  background-color: $approved-bg;
+}
+.select-text {
+  color: $select-text;
+}
+
+.menu-active {
+  background-color: $menu-active;
+}
+.menu-active-border {
+  border-left-color: $menu-active;
+}
+.menu-active-bg {
+  background-color: $menu-bg-child;
+}
+
+.input-border {
+  border: 1px solid $input-border;
+}
+
+.search-icon {
+  color: $search-icon;
+}
+
+.text-light-secondary {
+  color: $search-icon;
+}
+
+.icon-background {
+  background: $icon-background;
+}
 
 // .menu-active{background-color: $menu-active;}
 
-.menu-text-active{color: $menu-active;}
+.menu-text-active {
+  color: $menu-active;
+}
 
-.header-border-bottom{border-bottom: 1px solid $secondary-bg;}
- 
+.view-text {
+  color: $view-green;
+}
+
+.header-border-bottom {
+  border-bottom: 1px solid $secondary-bg;
+}
+.border-bottom-second {
+  border-bottom: 1px solid $input-border;
+}
+
 // Text color utilities
 
-.text-primary { color: $primary; }
+.text-primary {
+  color: $primary;
+}
 
-.text-secondary { color: $text-secondary; }
+.text-secondary {
+  color: $text-secondary;
+}
 
-.text-danger { color: $danger; }
+.text-danger {
+  color: $danger;
+}
 
-.text-warning { color: $warning; }
+.text-warning {
+  color: $warning;
+}
 
-.text-info { color: $info; }
+.text-info {
+  color: $info;
+}
 
-.text-dark { color: $dark; }
+.text-dark {
+  color: $dark;
+}
 
-.text-light { color: $light; }
+.text-light {
+  color: $light;
+}
 
-.text-white { color: $white; }
+.text-white {
+  color: $white;
+}
+
+.textarea-text {
+  color: $textarea-text;
+}
+
+.button-text {
+  color: $button-text;
+}
+
+.button-text-secondary {
+  color: $primary-bg;
+}
+
+.scrollbarHidden::-webkit-scrollbar {
+  display: none;
+  width: 0;
+}
+.decrease-color {
+  color: $decrease-color;
+}
+
+.role-loan-officer {
+  background-color: $role-loan-officer;
+}
+
+.role-vendor {
+  background-color: $role-vendor;
+}
+
+.role-admin {
+  background-color: $role-admin;
+}
+
+.role-operation-manager {
+  background-color: $role-operation-manager;
+}
+
+.status-active {
+  background-color: $status-active;
+  color: white;
+}
+
+.status-inactive {
+  background-color: $status-inactive;
+  color: white;
+}
+
+.dropdown-hover {
+  background: $Dropdown-hover;
+}
+
+.input-border{
+  border: 1px solid $input-border;
+  box-shadow: 0px 1px 2px 0px #1018280D;
+}
+
+.error-input-border{
+  border: 1px solid $decrease-color
+}
+
+.select-text{
+  color: $select-text
+}
 
 
+.textarea-border{
+  border: 1px solid $textarea-border;
+}
 
+.header-border{
+  border-bottom: 1px solid $header-border;
+}
+.input-bg{
+  background-color: $input-bg;
+}
+.search-text{
+  color: $search-text;
+}
 
- 
+.Bargraph-1{
+  background-color: $Bargraph-1;
+}
+.Bargraph-2{
+  background-color: $Bargraph-2;
+}
+.Bargraph-3{
+  background-color: $Bargraph-3;
+}
+.Bargraph-4{
+  background-color: $Bargraph-4;
+}
+.Barlable{
+  color: $Barlable;
+}
+.dashboardcard{
+  border: 1px solid $dashboardcard;
+}
+.cardbgpending{
+  background-color: $cardbgpending;
+}
+.selectborder{
+  border: 1px solid $selectborder;
+}
+.cardboredrpending{
+  border: 1px solid $cardboredrpending;
+}
+.pipeline{
+  color: $pipeline;
+}
+.QuickAction{
+  background:  $QuickAction;
+}
+
+.ProjectID{
+  color: $ProjectID;
+}
+.pipelinebg{
+  background-color: $pipelinebg;
+}
+.PipeBorderBottom{
+  border-bottom: 0.5px solid $PipeBorderBottom;
+}
+.PipeViewButton{
+  background-color: $PipeViewButton;
+}
+.NewLeadbg{
+  background-color: $NewLeadbg;
+}
+.PipeLineSecText{
+  color: $PipeLineSecText;
+}
+.light-bgcolor{
+  background-color: $light-bgcolor;
+}
+.SiteSurvey{
+  background-color: $SiteSurvey;
+}
+.payments{
+  background-color: $payments;
+}

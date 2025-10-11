@@ -1,0 +1,130 @@
+
+@mixin hone() {
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 32px;
+}
+@mixin htwo() {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 20px;
+}
+@mixin sidehtwo() {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 140%;
+}
+@mixin hthree() {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
+}
+@mixin hfour(){
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 140%;
+}
+@mixin hfive(){
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 140%;
+}
+@mixin hsix() {
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 24px;
+}
+@mixin hseven() {
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 120%;
+}
+@mixin height() {
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 140%;
+}
+@mixin hnine(){
+  font-size: 34px;
+  font-weight: 700;
+  line-height: 20px;
+}
+@mixin hten(){
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 120%;
+}
+@mixin heleven(){
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 30px;
+}
+@mixin htwelve(){
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 120%;
+}
+@mixin hthirteen(){
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 120%;
+}
+@mixin hfourteen(){
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 40px;
+}
+@mixin hthirtteen(){
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 150%;
+}
+@mixin text-one() {
+  font-size: 14px;
+  font-weight: 500 !important;
+  line-height: 20px;
+}
+@mixin text-two() {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+}
+@mixin text-three() {
+  font-size: 14px;
+  line-height: 20px;
+}
+@mixin text-four() {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 140%;
+}
+@mixin text-five() {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 140%;
+}
+@mixin text-six() {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 140%;
+}
+@mixin text-seven() {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+}
+@mixin text-eight() {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+}
+@mixin text-nine() {
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 20px;
+}
+@mixin text-ten() {
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 120%;
+}
